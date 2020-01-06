@@ -1,0 +1,906 @@
+\documentclass[11pt,article]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % caractères accentués en entrée, dans emacs
+\usepackage[french]{babel}
+\FrenchFootnotes
+\selectlanguage{french}
+\usepackage{a4wide} % possibilité d'utiliser toute la page a4
+% selon GUT#33, avril 2007, page 13, empagement
+% largeur des textes (ou justification) = 15cm
+% hauteur du rectangle d'empagement = 23cm
+% blanc de couture = 2/5 (21-15) = 2.4 = inner = right
+% blanc de grand fond = 3/5 (21-15) = outer = left
+% blanc de tête = 2/5 (29,7-23) = top
+% blanc de pied = 3/5 (29,7-23) = bottom
+%\usepackage[a4paper,twoside=true,right=2.4cm,left=3.6cm,top=2.68cm,bottom=4.02cm]{geometry} 
+% selon CFSE 2006
+% - largeur des textes (ou justification) : 16cm (2cm de marge, et 1cm
+%   de reliure) ;
+% - hauteur des textes, y compris les notes : 23cm (2,5cm de marge
+%   haute et 2cm de marge basse) ; 1ère page de : 36pts
+%   d'espacement avant le titre ;
+\oddsidemargin   -4mm           % 3cm a gauche des impaires
+\evensidemargin   4mm           % 2cm a gauche des paires
+\topmargin       -18mm          % 2.5cm en haut
+\headheight       13mm          % taille de l'entete (lignes)
+\headsep          24pt          % espace entre entete et texte
+\footskip         30pt          % espace entre pied de page et texte
+\textheight      230mm          % longeur du texte
+\textwidth       160mm          % largeur du texte
+\parskip 1pt                    % pas de sauts entre paragraphes
+%\parindent 0pt                  % largeur de l'indentation
+\usepackage{graphicx} % figure postcript avec latex,
+		      % figure png avec pdflatex, au lieu d'utiliser epsfig
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{paralist}
+\usepackage{ifthen}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{eurosym}
+\usepackage{textcomp}
+\usepackage{listings}
+\lstset{language=Java,numbers=left,numberstyle=\tiny,stepnumber=4,numbersep=5pt,xleftmargin=5pt}
+
+\usepackage{alltt}
+\usepackage{longtable}
+
+% adjust word spacing less strictly
+% as result, some spaces between words may be a bit too large,
+% but long words will be placed properly.
+\sloppy
+
+\newcommand{\cmt}[1]{\texttt{<}\textbf{--~#1~--}\texttt{>}}
+
+\usepackage{lineno}
+\usepackage{xspace}
+
+\setlength{\marginparwidth}{1cm}
+\setlength{\marginparsep}{10pt}
+\reversemarginpar
+\newcounter{usecasehaute}
+\newcommand{\haute}{Haute}
+\newcommand{\moyenne}{Moyenne}
+\newcommand{\basse}{basse}
+\newcommand{\usecase}[4]{\item \marginpar{\vspace{5pt}\ifthenelse{\equal{#1}{Haute}}{\centering\textsc{#1}\stepcounter{usecasehaute}\newline n$^{\circ}$ \theusecasehaute}{\ifthenelse{\equal{#1}{Moyenne}}{#1}{\small #1}}} #2 \begin{itemize}\item précondition~: #3 \item postcondition~: #4\end{itemize}}
+\newcommand{\priorityusecase}[2]{\item \marginpar{\vspace{5pt}\ifthenelse{\equal{#1}{Haute}}{\centering\textsc{#1}\stepcounter{usecasehaute}\newline n$^{\circ}$ \theusecasehaute}{\ifthenelse{\equal{#1}{Moyenne}}{#1}{\small #1}}} #2}
+\newcommand{\casusecase}[4]{\usecase{#1}{#2}{#3}{#4}}
+
+\newcommand{\nullvalue}{\textsf{null}\xspace}
+\newcommand{\emptyvalue}{\ensuremath\mathrm{vide}}
+\newcommand{\invariant}{\ensuremath\mathrm{invariant}}
+
+\newcommand{\gestionclefshotel}{\textsc{GestionClefsHôtel}\xspace}
+\newcommand{\gestionserrures}{\textsc{GestionSerrures}\xspace}
+
+\begin{document}
+\title{Système \gestionserrures pour la gestion des serrures programmables}
+\author{Denis Conan}
+\date{Janvier 2020}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+Pour tester notre logiciel \gestionclefshotel, nous avons besoin de
+simuler des serrures reprogrammables; c'est le rôle du système
+\gestionserrures, que nous présentons maintenant. Le système
+\gestionserrures est entièrement développé; le code est disponible
+dans le projet fourni au départ (cf.~le
+paquetage \begin{small}\textsf{eu.telecomsudparis.csc4102.gestionserrures}\end{small}).
+
+\textbf{NB:} cette section n'est pas à lire dès le début du module,
+mais au fur et à mesure de l'avancée dans le Sprint~1. Plus
+précisément, nous détaillons:
+\begin{compactitem}
+\item pour la séance~2, la spécification avec les fonctionnalités de
+simulation disponibles avec leurs préconditions et postconditions
+(dans la section~\ref{SS_simserrures_specification}),
+\item pour la séance~2, la préparation des tests de validation sous la
+  forme de tables de décision (dans la
+  section~\ref{SS_simserrures_preparationtestsvalidation}),
+\item pour la séance~3, les éléments de conception permettant de
+  comprendre et d'utiliser \gestionserrures (dans la
+  section~\ref{SS_simserrures_conception}),
+\item pour les séances~5 et~6, dans le code, la mise en œuvre du
+système ainsi que de ses tests unitaires et de validation.
+\end{compactitem}
+
+\section{Spécification}
+\label{SS_simserrures_specification}
+
+Les fonctionnalités sont décrites dans un diagramme de cas
+d'utilisation dans la
+section~\ref{SS_simserrures_specification_diag_cas_utilisation}, et
+leurs préconditions et postconditions dans la
+section~\ref{SS_simserrures_specification_pre_post_conditions}.
+
+\subsection{Diagramme de cas d'utilisation}
+\label{SS_simserrures_specification_diag_cas_utilisation}
+
+Le système \gestionserrures possède un seul acteur car c'est un
+système de simulation, donc sans rôle particulier. L'utilisateur peut
+créer, lister et supprimer les serrures. Il peut aussi ré-initialiser
+la serrure en fournissant une nouvelle graine pour la génération des
+clefs. Enfin, il peut simuler la présentation d'un badge pour essayer
+d'ouvrir la porte. Le diagramme de cas d'utilisation est présenté dans
+la figure qui suit.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.5]{DiagrammesDeCasDUtilisation/gestionclefshotel_gestionserrures_uml_diag_cas_utilisation}
+\caption{Diagramme de cas d'utilisation du système \gestionserrures}
+\end{center}
+\label{F_usecase_umlet_simserrures}
+\end{figure}
+
+\newpage
+
+\subsection{Priorités, préconditions et postconditions des cas d'utilisation}
+\label{SS_simserrures_specification_pre_post_conditions}
+
+Nous donnons les préconditions et postconditions pour les cas
+d'utilisation de priorité <<~\haute~>>. Pour les autres, nous
+indiquons uniquement leur niveau de priorité.
+
+\bigskip
+\begin{compactitem}
+\usecase{\haute}{Créer une serrure}
+        %% précondition
+        {identifiant de la serrure bien formé (non \nullvalue et non
+          vide) $\land$ serrure avec cet identifiant inexistante}
+        %% postcondition
+        {serrure avec cet identifiant existante $\land$ les deux clefs
+          sont les deux premières valeurs générées à partir de la
+          graine et du sel}
+        
+\smallskip
+
+\usecase{\haute}{Ré-initialiser les clefs d'une serrure}
+        {identifiant de la serrure bien formé (non \nullvalue et non vide)
+          $\land$ serrure avec cet identifiant existante $\land$ nouvelle
+          graine de la serrure bien formée (non \nullvalue et non
+          vide) $\land$ nouvelle graine ou nouveau sel différents}
+        {une nouvelle graine $\lor$ un nouveau sel
+          \newline$\land$ première clef de la nouvelle
+          paire $\neq$ première clef de l'ancienne paire \newline$\land$
+          première clef de la nouvelle paire $\neq$ seconde clef de
+          l'ancienne paire \newline$\land$ seconde clef de la nouvelle
+          paire $\neq$ première clef de l'ancienne paire \newline$\land$
+          seconde clef de la nouvelle paire $\neq$ seconde clef de
+          l'ancienne paire}
+
+\usecase{\haute}{Ré-initialiser les clefs d'une serrure}
+        %% précondition
+        {identifiant de la serrure bien formé (non \nullvalue et non
+          vide) $\land$ serrure avec cet identifiant existante $\land$
+        graine de la serrure bien formé (non \nullvalue et non vide)}
+        %% postcondition
+        {serrure avec ce identifiant existante $\land$ les deux clefs
+          sont les deux premières valeurs générées à partir de la graine}
+
+\smallskip
+
+\priorityusecase{\moyenne}{Obtenir la première clef d'une serrure}
+
+\smallskip
+
+\priorityusecase{\moyenne}{Obtenir la seconde clef d'une serrure}
+
+\smallskip
+
+\priorityusecase{\moyenne}{Lister les serrures}
+
+\smallskip
+
+\usecase{\haute}{Tester une serrure avec deux clefs}
+        %% précondition
+        {identifiant de la serrure bien formé (non \nullvalue et non
+          vide) $\land$ serrure avec cet identifiant existante $\land$
+          valeurs fournies pour les clefs $K_1$ et $K_2$ bien formées
+          (non \nullvalue et non vides)}
+        %% postcondition
+        {~\newline
+          $\Bigl[K_1$ et $K_2$ fournies identiques respectivement aux première
+            et seconde clefs de la serrure $\lor$ $K_1$ fournie est
+            identique à la seconde clef de la serrure$\Bigr]$}
+
+\smallskip
+
+\usecase{\haute}{Essayer d'ouvrir la porte avec un badge}
+        %% précondition
+        {identifiant de la serrure bien formé (non \nullvalue et non
+          vide) $\land$ serrure avec cet identifiant existante $\land$
+          valeur des clefs $K_1$ et $K_2$ bien formées (non \nullvalue
+          et non vides) $\land$
+          \newline
+          $\Bigl[K_1$ et $K_2$ fournies identiques respectivement aux
+            première et seconde clefs de la serrure  $\lor K_1$
+            fournie était identique à la seconde clef de la serrure$\Bigr]$}
+        %% postcondition
+        {
+          \newline
+          $\bigl(K_1$ et $K_2$ fournies identiques respectivement aux
+          première et seconde clefs de la serrure $\implies$ la porte
+          est ouverte et les clefs de la serrure reste inchangées$\bigr)$
+          \newline
+          $\lor\bigl(K_1$ fournie était identique à la seconde clef de
+          la serrure $\implies$ la première clef de la serrure
+          devient $K_1$ et une seconde clef pour la serrure$\bigr)$
+          \newline
+          $\lor$ la porte ne s'ouvre pas}
+
+\smallskip
+
+\priorityusecase{\basse}{Supprimer une serrure}
+
+\end{compactitem}
+
+\section{Préparation des tests de validation}
+\label{SS_simserrures_preparationtestsvalidation}
+
+Pour les cas d'utilisation de priorité haute et les plus
+<<~intéressants~>> car les plus sensibles ou risqués, nous préparons
+des tests de validation.
+
+\begin{table}[htbp!]
+\begin{center}
+\begin{tabular}{|p{0.6\linewidth}|c|c|c|c|}
+\hline
+Numéro de test
+&1&2&3&4\\
+\hline
+\hline
+Identifiant de la serrure bien formé (non \nullvalue, non vide)
+&F&T&T&T\\
+\hline
+Graine de la serrure bien formé (non \nullvalue, non vide)
+& &F&T&T\\
+\hline
+Serrure avec cet identifiant inexistante
+& & &F&T\\
+\hline
+\hline
+Création acceptée
+&F&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test 
+&2&2&1&1\\
+\hline
+\end{tabular}
+\caption{Cas d'utilisation <<~créer une serrure~>>}
+\end{center}
+\end{table}
+
+\begin{table}[htbp!]
+\begin{tabular}{|p{0.6\linewidth}|c|c|c|c|c|}
+\hline
+Numéro de test
+&1&2&3&4&5\\
+\hline
+\hline
+Identifiant/code de la serrure bien formé (non \nullvalue et non vide)
+&F&T&T&T&T\\
+\hline
+Serrure existante avec ce code
+& &F&T&T&T\\
+\hline
+Nouvelle graine pour la génération des clefs de la chambre bien formée (non \nullvalue et non vide)
+& & &F&T&T\\
+\hline
+Nouvelle graine ou nouveau sel différents
+& & & &F&T\\
+\hline
+\hline
+Génération de la nouvelle paire de clefs acceptée
+&F&F&F&F&T\\
+\hline
+Nouvelle graine $\neq$ ancienne graine
+\newline$\lor$ nouveau sel $\neq$ ancien sel
+& & & & &T\\
+\hline
+Première clef de la nouvelle paire $\neq$ première clef de l'ancienne
+paire \newline$\land$ première clef de la nouvelle paire $\neq$ seconde clef
+de l'ancienne paire
+& & & & &T\\
+\hline
+Seconde clef de la nouvelle paire $\neq$ première clef de l'ancienne
+paire \newline$\land$ seconde clef de la nouvelle paire $\neq$ seconde clef de
+l'ancienne paire
+& & & & &T\\
+\hline
+\hline
+Nombre de jeux de test 
+&2&1&2&1&3\\
+\hline
+\end{tabular}
+\caption{Cas d'utilisation <<~ré-initialiser les clefs d'une
+  serrure~>>. Le jeu de tests du test~5 comprend trois tests:
+  (1)~graine différente, (2)~sel différent, et (3)~graine et sel
+  différents.}
+\end{table}
+
+\begin{table}[htbp!]
+\begin{center}
+\begin{tabular}{|p{0.8\linewidth}|c|c|c|c|c|}
+\hline
+Numéro de test
+&1&2&3&4&5\\
+\hline
+\hline
+Identifiant de la serrure bien formé (non \nullvalue, non vide)
+&F&T&T&T&T\\
+\hline
+Serrure avec cet identifiant existante
+& &F&T&T&T\\
+\hline
+Deux clefs bien formées (non \nullvalue, non vides)
+& & &F&T&T\\
+\hline
+{\small$(K_1$ et $K_2$ fournies identiques respectivement aux
+première et seconde clefs de la serrure$) \lor (K_1$ fournie est
+identique à la seconde clef de la serrure$)$}
+& & & &F&T\\
+\hline
+La porte peut s'ouvrire
+&F&F&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test 
+&2&1&4&5&3\\
+\hline
+\end{tabular}
+\caption{Cas d'utilisation <<~tester une serrure avec deux clefs~>>}
+\end{center}
+\end{table}
+
+Pour le calcul des jeux de test des tests~4 et~5 du cas d'utilisation
+<<~tester une serrure avec deux clefs~>>, considérons tout d'abord
+l'invariant suivant qui se déduit du texte du brevet: les deux clefs
+de la serrure ne sont pas identiques. En considérant que l'invariant
+est vérifié (c.-à-d., nous nous engageons dans la suite à vérifier par
+assertion cet invariant dans le code), la table~3 présente toutes les
+combinaisons possibles entre les clefs fournies ($K_1$ et $K_2$) et
+celles de la serrure ($\mathit{KS}_1$ et $\mathit{KS}_2$).
+
+\begin{table}[htbp!]
+\begin{center}
+\begin{tabular}{l||c|c|c|c||p{0.4\textwidth}}
+\hline
+\textbf{\#} & \multicolumn{4}{c||}{\textbf{Conditions}} & \textbf{Résultat ou\newline raison d'impossibilité du test}\\
+\hline
+\hline
+%% 1
+&
+$K_1=\mathit{KS}_1$ & $K_2=\mathit{KS}_2$ & $K_1=\mathit{KS}_2$ &
+$K_2=\mathit{KS}_1$ & Impossible car non-respect de l'invariant de la serrure\\
+\hline
+%% 2
+&
+" & " & " & $K_2\neq\mathit{KS}_1$ & Impossible car contradiction\newline ($K_2=\mathit{KS}_2=K_1=\mathit{KS}_1\neq{}K_2$)\\
+\hline
+%% 3
+&
+" & " & $K_1\neq\mathit{KS}_2$ & $K_2=\mathit{KS}_1$ & Impossible car
+contradiction\newline ($K_1=\mathit{KS}_1=K_2=\mathit{KS}_2\neq{K_1}$)\\
+\hline
+%% 4
+&
+" & " & " & $K_2\neq\mathit{KS}_1$ & Impossible car non-respect de l'invariant de la serrure\\
+\hline
+%% 5
+&
+" & $K_2\neq\mathit{KS}_2$ & $K_1=\mathit{KS}_2$ & $K_2=\mathit{KS}_1$
+& Impossible car contradiction\newline ($K_2=\mathit{KS}_1=K_1=\mathit{KS}_2\neq{}K_2$)\\
+\hline
+%% 6
+&
+" & " & " & $K_2\neq\mathit{KS}_1$ & Impossible car non-respect de l'invariant de la serrure\\
+\hline
+%% 7
+F1&
+" & " & $K_1\neq\mathit{KS}_2$ & $K_2=\mathit{KS}_1$ & $\mathit{false}$\\
+\hline
+%% 8
+F2&
+" & " & " & $K_2\neq\mathit{KS}_1$ & $\mathit{false}$\\
+\hline
+%% 9
+&
+$K_1\neq\mathit{KS}_1$ & $K_2=\mathit{KS}_2$ & $K_1=\mathit{KS}_2$ &
+$K_2=\mathit{KS}_1$ & Impossible car contradiction\newline ($K_1=\mathit{KS}_2=K_2=\mathit{KS}_1\neq{}K_1$)\\
+\hline
+%% 10
+T1&
+" & " & " & $K_2\neq\mathit{KS}_1$ & $\mathit{true}$\\
+\hline
+%% 11
+&
+" & " & $K_1\neq\mathit{KS}_2$ & $K_2=\mathit{KS}_1$ & Impossible car non-respect de l'invariant de la serrure\\
+\hline
+%% 12
+F3&
+" & " & " & $K_2\neq\mathit{KS}_1$ & $\mathit{false}$\\
+\hline
+%% 13
+T2&
+" & $K_2\neq\mathit{KS}_2$ & $K_1=\mathit{KS}_2$ & $K_2=\mathit{KS}_1$
+& $\mathit{true}$\\
+\hline
+%% 14
+T3&
+" & " & " & $K_2\neq\mathit{KS}_1$ & $\mathit{true}$\\
+\hline
+%% 15
+F4&
+" & " & $K_1\neq\mathit{KS}_2$ & $K_2=\mathit{KS}_1$ & $\mathit{false}$\\
+\hline
+%% 16
+F5&
+" & " & " & $K_2\neq\mathit{KS}_1$ & $\mathit{false}$\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Jeux de test pour l'exhaustivité des test des cas
+d'utilisation <<~tester une serrure avec deux clefs~>> et <<~essayer
+d'ouvrir la porte avec un badge~>> (<<~FX~>> et <<~TX~>> servent à
+numéroter les tests; <<~"~>> signifie <<~\textit{idem}~>>)}
+\end{table}
+
+\begin{table}[htbp!]
+\begin{center}
+\begin{tabular}{|p{0.8\linewidth}|c|c|c|c|c|}
+\hline
+Numéro de test
+&1&2&3&4&5\\
+\hline
+\hline
+Identifiant de la serrure bien formé (non \nullvalue, non vide)
+&F&T&T&T&T\\
+\hline
+Serrure avec cet identifiant existante
+& &F&T&T&T\\
+\hline
+Deux clefs bien formées (non \nullvalue, non vides)
+& & &F&T&T\\
+\hline
+{\small$(K_1$ et $K_2$ fournies identiques respectivement aux
+première et seconde clefs de la serrure$) \lor (K_1$ fournie est
+identique à la seconde clef de la serrure$)$}
+& & & &F&T\\
+\hline
+{\small
+$\bigl(K_1$ et $K_2$ fournies identiques respectivement aux
+première et seconde clefs de la serrure $\implies$ la porte est
+ouverte et les clefs de la serrure reste inchangées$\bigr)$
+\newline
+$\lor\bigl(K_1$ fournie était identique à la
+seconde clef de la serrure $\implies$ la première clef de la serrure
+devient $K_1$ et une seconde clef est générée pour la serrure$\bigr)$
+\newline
+$\lor$ la porte ne s'ouvre pas}
+&F&F&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test
+&2&1&2&5&3\\
+\hline
+\end{tabular}
+\caption{Cas d'utilisation <<~essayer d'ouvrir la porte avec un badge~>>}
+\end{center}
+\end{table}
+
+\newpage~\newpage
+
+\section{Conception}
+\label{SS_simserrures_conception}
+
+\subsection{Diagrammes de séquence}
+
+Le diagramme de classes de la figure qui suit contient la façade du
+système: la classe \textsf{GestionSerrures}, ainsi que la classe
+\textsf{Serrures} qui réalise le concept de serrure programmable avec
+deux clefs.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=0.5]{DiagrammesDeClasses/gestionclefshotel_gestionserrures_uml_diag_classes}
+\caption{Diagramme de classes}
+\end{center}
+\label{umlet_simserrures_diag_classes}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrammes de séquence}
+
+Voici la description textuelle du cas d'utilisation <<~créer une serrure~>>:
+\begin{compactitem}
+\item arguments en entrée: identifiant de la serrure, la graine de la
+  serrure pour la génération des clefs, le sel de la serrure pour la
+  génération des clefs
+\item rappel de la précondition: identifiant de la serrure bien
+  formé (non \nullvalue et non vide) $\land$ graine bien formée (non
+  \nullvalue et non vide) $\land$ serrure avec cet identifiant
+  inexistante
+\item algorithme:
+\begin{compactenum}
+\item vérifier les arguments
+\item vérifier que la serrure est inexistante
+\item instancier la serrure
+  \begin{compactitem}
+  \item générer deux nouvelles clefs
+  \end{compactitem}
+\item ajouter la serrure dans la collection des serrures
+\end{compactenum}
+\end{compactitem}
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[scale=0.5]{DiagrammesDeSequence/gestionclefshotel_gestionserrures_uml_diag_sequence_creer_serrure}
+\caption{Diagramme de séquence du cas d'utilisation <<~créer une serrure~>>}
+\end{center}
+\label{umlet_diag_sequence_creer_serrure}
+\end{figure}
+
+\newpage
+
+Voici la description textuelle du cas d'utilisation <<~ré-initialiser une serrure~>>:
+\begin{compactitem}
+\item arguments en entrée: identifiant de la serrure, nouvelle graine,
+  nouveau sel
+\item rappel de la précondition: identifiant de la serrure bien formé
+  (non \nullvalue et non vide) $\land$ nouvelle graine bien formée
+  (non \nullvalue et non vide) $\land$ serrure avec cet identifiant
+  existante
+\item algorithme:
+\begin{compactenum}
+\item vérifier les arguments
+\item vérifier que la serrure existe
+\item ré-initialiser la serrure
+  \begin{compactitem}
+  \item générer deux nouvelles clefs
+  \end{compactitem}
+\end{compactenum}
+\end{compactitem}
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[scale=0.5]{DiagrammesDeSequence/gestionclefshotel_gestionserrures_uml_diag_sequence_reinitialiser_serrure}
+\caption{Diagramme de séquence du cas d'utilisation <<~ré-initialiser une serrure~>>}
+\end{center}
+\label{umlet_diag_sequence_reinitialiser_serrure}
+\end{figure}
+
+\newpage
+
+Voici la description textuelle du cas d'utilisation <<~tester une
+serrure avec deux clefs~>>:
+\begin{compactitem}
+\item arguments en entrée: identifiant de la serrure, première clef,
+  seconde clef
+\item rappel de la précondition: identifiant de la serrure bien formé
+  (non \nullvalue et non vide) $\land$ serrure avec cet identifiant
+  existante $\land$ valeurs fournies pour les clefs $K_1$ et $K_2$
+  bien formées (non \nullvalue et non vides)
+\item algorithme:
+\begin{compactenum}
+\item vérifier les arguments
+\item vérifier que la serrure existe
+\item tester la serrure
+\end{compactenum}
+\end{compactitem}
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[scale=0.5]{DiagrammesDeSequence/gestionclefshotel_gestionserrures_uml_diag_sequence_tester_serrure}
+\caption{Diagramme de séquence du cas d'utilisation <<~tester une
+  serrure avec deux clefs~>>}
+\end{center}
+\label{umlet_diag_sequence_tester_serrure}
+\end{figure}
+
+\newpage
+
+Voici la description textuelle du cas d'utilisation <<~essayer
+d'ouvrir une serrure avec deux clefs~>>:
+\begin{compactitem}
+\item arguments en entrée: identifiant de la serrure, première clef,
+  seconde clef
+\item rappel de la précondition: identifiant de la serrure bien formé
+  (non \nullvalue et non vide) $\land$ serrure avec cet identifiant
+  existante $\land$ valeurs fournies pour les clefs $K_1$ et $K_2$
+  bien formées (non \nullvalue et non vides)
+\item algorithme:
+\begin{compactenum}
+\item vérifier les arguments
+\item vérifier que la serrure existe
+\item essayer d'ouvrir la serrure
+  \begin{compactitem}
+  \item générer une nouvelle clef
+  \end{compactitem}
+\end{compactenum}
+\end{compactitem}
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[scale=0.5]{DiagrammesDeSequence/gestionclefshotel_gestionserrures_uml_diag_sequence_essayer_ouvrir_serrure}
+\caption{Diagramme de séquence du cas d'utilisation <<~essayer d'ouvrir une
+  serrure avec deux clefs~>>}
+\end{center}
+\label{umlet_diag_sequence_essayer_ouvrir_serrure}
+\end{figure}
+
+\newpage
+
+\subsection{Fiches des classes}
+
+\subsubsection{Classe \textsf{\gestionserrures}}
+
+\begin{center}
+\begin{longtable}{|p{15cm}|} 
+\hline
+\multicolumn{1}{|c|}{{\Large \textsf{\gestionserrures}}} \\
+\hline
+%\cmt{attributs}\\
+$+$ \underline{MESSAGE\_PORTE\_OUVERT} : String = ``la porte est ouverte'' \\
+$+$ \underline{MESSAGE\_PORTE\_FERMÉE} : String = ``la porte reste fermée'' \\
+\cmt{attributs <<~association~>>}\\
+$-$ serrures : collection de @Serrure \\
+\hline
+\cmt{constructeur} \\
+$+$ \gestionserrures()\\
+%$+$ destructeur()\\
+$+$ invariant():booléen\\
+\cmt{operations <<~cas d'utilisation~>>} \\
+$+$ créerSerrure(String identifiant, String graine, int sel) \\
+$+$ essayerDOuvrirUnePorte(String identifiant, byte[] premièreClef, byte[] secondeClef): String \\
+$+$ invariant(): booléen \\
+$+$ listeSerrures(): String[] \\
+$+$ obtenirPremiereClefSerrure(String identifiant): byte[] \\
+$+$ obtenirSecondeClefSerrure(String identifiant): byte[] \\
+$+$ tester(String identifiant, byte[] premièreClef, byte[] secondeClef):booléen \\
+%\cmt{opérations de recherche} \\
+$-$ chercherSerrure(String identifiant): Serrure \\
+\hline  
+\end{longtable}%)
+\end{center}
+
+\subsubsection{Classe \textsf{Serrure}}
+
+\begin{center}
+\begin{longtable}{|p{15cm}|} 
+\hline
+\multicolumn{1}{|c|}{{\Large \textsf{Serrure}}} \\
+\hline
+%\cmt{attributs}\\
+$-$ identifiant: String \\
+$-$ graine: String \\
+$-$ sel: int \\
+$-$ premiereClef: byte[] \\
+$-$ secondeClef: byte[] \\
+%\cmt{attributs <<~association~>>}\\
+\hline
+\cmt{constructeur} \\
+$+$ Serrure(String identifiant, String graine, int sel)\\
+%$+$ destructeur()\\
+$+$ invariant():booléen\\
+$+$ essayerDOuvrirUnePorte(byte[] premièreClef, byte[] secondeClef): String \\
+$+$ invariant(): booléen \\
+$+$ getPremiereClef(): byte[] \\
+$+$ getSecondeClef(): byte[] \\
+$+$ tester(byte[] premièreClef, byte[] secondeClef):booléen \\
+\hline  
+\end{longtable}%)
+\end{center}
+
+\newpage
+
+\section{Préparation des tests unitaires}
+
+\subsection{Classe \textsf{Serrure}}
+
+\newcommand{\identifiant}{\ensuremath\mathrm{identifiant}}
+\newcommand{\graine}{\ensuremath\mathrm{graine}}
+\newcommand{\sel}{\ensuremath\mathrm{sel}}
+\newcommand{\premiereClef}{\ensuremath\mathrm{premiereClef}}
+\newcommand{\secondeClef}{\ensuremath\mathrm{secondeClef}}
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|p{0.4\linewidth}|c|c|c|}
+\hline
+Numéro de test
+&1&2&3\\
+\hline
+\hline
+\texttt{identifiant} $\neq \nullvalue \land \neg \emptyvalue$
+&F&T&T\\
+\hline
+\texttt{graine} $\neq \nullvalue \land \neg \emptyvalue$
+& &F&T\\
+\hline
+\hline
+$\identifiant' = \identifiant$
+& & &T\\
+\hline
+$\graine' = \graine$
+& & &T\\
+\hline
+$\sel' = \sel$
+& & &T\\
+\hline
+$\premiereClef' \neq \nullvalue \neg \emptyvalue$
+& & &T\\
+\hline
+$\secondeClef' \neq \nullvalue \neg \emptyvalue$
+& & &T\\
+\hline
+$\premiereClef' \neq \secondeClef$
+& & &T\\
+\hline
+$\invariant$
+& & &T\\
+\hline
+Levée d'une exception&\textsc{oui}&\textsc{oui}&\textsc{non}\\
+\hline
+\hline
+Objet créé
+&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test 
+&2&2&1\\
+\hline
+\end{tabular}
+\caption{Méthode \texttt{constructeurSerrure} de la
+classe \texttt{Serrure}~>>}
+\end{center}
+\end{table}
+
+\begin{table}[htbp!]
+\begin{center}
+\begin{tabular}{|p{0.8\linewidth}|c|c|c|}
+\hline
+Numéro de test
+&1&2&3\\
+\hline
+\hline
+Deux clefs bien formées (non \nullvalue, non vides)
+&F&T&T\\
+\hline
+{\small$(K_1$ et $K_2$ fournies identiques respectivement aux
+première et seconde clefs de la serrure$) \lor (K_1$ fournie est
+identique à la seconde clef de la serrure$)$}
+& &F&T\\
+\hline
+\hline
+$\premiereClef' = \premiereClef$
+& & &T\\
+\hline
+$\secondeClef' = \secondeClef$
+& & &T\\
+\hline
+$\invariant$
+& & &T\\
+\hline
+Levée d'une exception&\textsc{oui}&\textsc{oui}&\textsc{non}\\
+\hline
+\hline
+La porte peut s'ouvrire
+&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test 
+&4&5&3\\
+\hline
+\end{tabular}
+\caption{Méthode \texttt{tester} de la classe
+  \texttt{Serrure}~>>. Nous utilisons la même table pour calculer le
+  nombre de tests dans les jeux de test des tests~2 et~3:
+  5~combinaisons possibles pour \textsf{false} et~3 combinaisons
+  possibles pour \textsf{true}.}
+\end{center}
+\end{table}
+
+\begin{table}[htbp!]
+\begin{center}
+\begin{tabular}{|p{0.8\linewidth}|c|c|c|}
+\hline
+Numéro de test
+&1&2&3\\
+\hline
+\hline
+Deux clefs bien formées (non \nullvalue, non vides)
+&F&T&T\\
+\hline
+{\small$(K_1$ et $K_2$ fournies identiques respectivement aux
+première et seconde clefs de la serrure$) \lor (K_1$ fournie est
+identique à la seconde clef de la serrure$)$}
+& &F&T\\
+\hline
+{\small
+$\bigl(K_1$ et $K_2$ fournies identiques respectivement aux
+première et seconde clefs de la serrure $\implies$ la porte est
+ouverte et les clefs de la serrure reste inchangées$\bigr)$
+\newline
+$\lor\bigl(K_1$ fournie était identique à la
+seconde clef de la serrure $\implies$ la première clef de la serrure
+devient $K_1$ et une seconde clef est générée pour la serrure$\bigr)$
+\newline
+$\lor$ la porte ne s'ouvre pas}
+&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test
+&2&5&3\\
+\hline
+\end{tabular}
+\caption{Méthode \texttt{essayerDOuvrirLaPorte} de la classe
+  \texttt{Serrure}~>>. Nous utilisons la même table pour calculer le
+  nombre de tests dans les jeux de test des tests~2 et~3:
+  5~combinaisons possibles pour \textsf{false} et~3 combinaisons
+  possibles pour \textsf{true}.}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|p{0.4\linewidth}|c|c|c|}
+\hline
+Numéro de test
+&1&2&3\\
+\hline
+\hline
+\texttt{graine} $\neq \nullvalue \land \neg \emptyvalue$
+&F&T&T\\
+\hline
+\texttt{graine} ou \texttt{sel} différents
+& &F&T\\
+\hline
+\hline
+$\identifiant' = \identifiant$
+& &F&T\\
+\hline
+$\graine' \neq \graine \lor \sel' \neq \sel$
+& & &T\\
+\hline
+$\premiereClef' \neq \premiereClef$
+& & &T\\
+\hline
+$\premiereClef' \neq \secondeClef$
+& & &T\\
+\hline
+$\secondeClef' \neq \premiereClef$
+& & &T\\
+\hline
+$\secondeClef' \neq \secondeClef$
+& & &T\\
+\hline
+$\premiereClef' \neq \secondeClef'$
+& & &T\\
+\hline
+$\invariant$
+& & &T\\
+\hline
+Levée d'une exception&\textsc{oui}&\textsc{oui}&\textsc{non}\\
+\hline
+\hline
+Clefs ré-initialisées
+&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test 
+&2&1&3\\
+\hline
+\end{tabular}
+\caption{Méthode \texttt{réInitialiser} de la classe
+  \texttt{Serrure}~>>. Le test~3 comporte un jeu de trois tests selon
+  que la graine ou le sel sont différents.}
+\end{center}
+\end{table}
+
+\end{document}

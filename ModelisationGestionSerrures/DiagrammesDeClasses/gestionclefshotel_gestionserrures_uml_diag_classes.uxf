@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>0</y>
+      <w>630</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>GestionSerruresInterface
+--
++_MESSAGE_PORTE_OUVERTE: String = "la porte est ouverte"_
++_MESSAGE_PORTE_FERMEE: String = "la porte reste fermée"_
+--
++creerSerrure(String nomSerrure, byte[] grainePourLaGénération)
++testerSerrure(String nomSerrure, byte[] premiereClef, byte[] secondeClef): booean
++essayerDOuvrirUnePorte(String nomSerrure, byte[] premiereClef, byte[] secondeClef): String
++reInitialiserSerrure(String nomSerrure, byte[] nouvelleGraine)
++obtenirPremiereClefSerrure(String nomSerrure): byte[]
++obtenirSecondeClefSerrure(String nomSerrure): byte[]
++listerSerrures(): String[]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>290</y>
+      <w>630</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Serrure
+--
+-identifiant:String
+-graine:String
+-sel:int
+-premièreClef:byte[]
+-secondeClef:byte[]
+--
++constructeur(Sring code, String graine, int sel)
++essayerDouvrirLaPorte(byte[] premiereClef, byt[] secondeClef):String
++getPremiereClef():byte[]
++getSecondeClef():byte[]
++reInitialise(String graine, int sel)
++tester(byte[] premiereClef, byte[] secondeClef)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>180</y>
+      <w>40</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>540</y>
+      <w>630</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Util
+(GestionClefsHôtel)
+--
+_+TAILLE_CLEF:int=16_
+--
+_+générerUneNouvelleClef(String graine, int sel)_
+_+clefToString(byte[] sel)_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

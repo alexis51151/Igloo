@@ -1,0 +1,279 @@
+\documentclass[11pt,article]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % caractères accentués en entrée, dans emacs
+\usepackage[french]{babel}
+\FrenchFootnotes
+\selectlanguage{french}
+\usepackage{a4wide} % possibilité d'utiliser toute la page a4
+% selon GUT#33, avril 2007, page 13, empagement
+% largeur des textes (ou justification) = 15cm
+% hauteur du rectangle d'empagement = 23cm
+% blanc de couture = 2/5 (21-15) = 2.4 = inner = right
+% blanc de grand fond = 3/5 (21-15) = outer = left
+% blanc de tête = 2/5 (29,7-23) = top
+% blanc de pied = 3/5 (29,7-23) = bottom
+%\usepackage[a4paper,twoside=true,right=2.4cm,left=3.6cm,top=2.68cm,bottom=4.02cm]{geometry} 
+% selon CFSE 2006
+% - largeur des textes (ou justification) : 16cm (2cm de marge, et 1cm
+%   de reliure) ;
+% - hauteur des textes, y compris les notes : 23cm (2,5cm de marge
+%   haute et 2cm de marge basse) ; 1ère page de : 36pts
+%   d'espacement avant le titre ;
+\oddsidemargin   -4mm           % 3cm a gauche des impaires
+\evensidemargin   4mm           % 2cm a gauche des paires
+\topmargin       -18mm          % 2.5cm en haut
+\headheight       13mm          % taille de l'entete (lignes)
+\headsep          24pt          % espace entre entete et texte
+\footskip         30pt          % espace entre pied de page et texte
+\textheight      230mm          % longeur du texte
+\textwidth       160mm          % largeur du texte
+\parskip 1pt                    % pas de sauts entre paragraphes
+%\parindent 0pt                  % largeur de l'indentation
+\usepackage{graphicx} % figure postcript avec latex,
+		      % figure png avec pdflatex, au lieu d'utiliser epsfig
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{paralist}
+\usepackage{ifthen}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{eurosym}
+\usepackage{textcomp}
+\usepackage{listings}
+\lstset{language=Java,numbers=left,numberstyle=\tiny,stepnumber=4,numbersep=5pt,xleftmargin=5pt}
+
+\usepackage{alltt}
+\usepackage{longtable}
+
+% adjust word spacing less strictly
+% as result, some spaces between words may be a bit too large,
+% but long words will be placed properly.
+\sloppy
+
+\newcommand{\cmt}[1]{\texttt{<}\textbf{--~#1~--}\texttt{>}}
+
+\usepackage{lineno}
+\usepackage{xspace}
+
+\setlength{\marginparwidth}{1cm}
+\setlength{\marginparsep}{10pt}
+\reversemarginpar
+\newcounter{usecasehaute}
+\newcommand{\haute}{Haute}
+\newcommand{\moyenne}{Moyenne}
+\newcommand{\basse}{basse}
+\newcommand{\usecase}[4]{\item \marginpar{\vspace{5pt}\ifthenelse{\equal{#1}{Haute}}{\centering\textsc{#1}\stepcounter{usecasehaute}\newline n$^{\circ}$ \theusecasehaute}{\ifthenelse{\equal{#1}{Moyenne}}{#1}{\small #1}}} #2 \begin{itemize}\item précondition~: #3 \item postcondition~: #4\end{itemize}}
+\newcommand{\priorityusecase}[2]{\item \marginpar{\vspace{5pt}\ifthenelse{\equal{#1}{Haute}}{\centering\textsc{#1}\stepcounter{usecasehaute}\newline n$^{\circ}$ \theusecasehaute}{\ifthenelse{\equal{#1}{Moyenne}}{#1}{\small #1}}} #2}
+\newcommand{\casusecase}[4]{\usecase{#1}{#2}{#3}{#4}}
+
+\newcommand{\nullvalue}{\textsf{null}\xspace}
+\newcommand{\emptyvalue}{\ensuremath\mathrm{vide}}
+\newcommand{\invariant}{\ensuremath\mathrm{invariant}}
+
+\begin{document}
+\title{Projet CSC4102: Gestion des clefs dans un hôtel}
+\author{Nom Prénom Étudiant1 et Nom Prénom Étudiants2}
+\date{Année 2019--2020~---~\today}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Spécification}
+
+\subsection{Diagrammes de cas d'utilisation}
+
+{\color{red}\textbf{Le diagramme suivant est à compléter.}}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{DiagrammesDeCasDUtilisation/gestionclefshotel_uml_diag_cas_utilisation}
+\caption{Diagramme de cas d'utilisation}
+\end{center}
+\label{umlet_diag_cas_utilisation}
+\end{figure}
+
+\newpage
+
+\subsection{Priorités, préconditions et postconditions des cas d'utilisation}
+
+Les priorités des cas d'utilisation pour le sprint~1 sont choisies
+avec les règles de bon sens suivantes:
+\begin{compactitem}
+\item pour retirer une entité du système, elle doit y être. La
+priorité de l'ajout est donc supérieure ou égale à la priorité du
+retrait;
+\item pour lister les entités d'un type donné, elles doivent y être. La
+priorité de l'ajout est donc supérieure ou égale à la priorité du
+listage;
+\item il est \textit{a priori} possible, c.-à-d. sans raison
+contraire, de démontrer la mise en œuvre d'un sous-ensemble des
+fonctionnalités du système, et plus particulièrement la prise en
+compte des principales règles de gestion, sans les retraits ou les
+listages.
+\item la possibilité de lister aide au déverminage de l'application
+pendant les activités d'exécution des tests de validation.
+\end{compactitem}
+Par conséquent, les cas d'utilisation d'ajout sont \textit{a priori}
+de priorité <<~haute~>>, ceux de listage de priorité <<~moyenne~>>, et
+ceux de retrait de priorité <<~basse~>>.
+
+\bigskip
+
+Dans la suite, nous donnons les préconditions et postconditions pour
+les cas d'utilisation de priorité <<~\haute~>>. Pour les autres, nous
+indiquons uniquement leur niveau de priorité.
+
+\bigskip
+
+{\color{red}\textbf{La précondition suivante est à compléter.}}
+
+\begin{compactitem}
+\usecase{\haute}{Créer une chambre programme}
+        %% précondition
+        {identifiant/code de la chambre bien formé (non \nullvalue et non
+          vide) $\land$ chambre avec ce code inexistante $\land$
+          graine pour la génération des clefs bien formée (non
+          \nullvalue et non vide}
+        %% postcondition
+        {chambre avec cet identifiant existante}
+
+\smallskip
+
+\priorityusecase{\basse}{Retirer une chambre}
+
+\smallskip
+
+\priorityusecase{\moyenne}{Lister les chambres}
+\end{compactitem}
+
+\newpage
+
+\section{Préparation des tests de validation}
+
+\subsection{Tables de décision des tests de validation}
+
+La fiche programme du module CSC4102 ne permettant pas de développer
+des tests de validation couvrant l'ensemble des cas d'utilisation de
+l'application, les cas d'utilisation choisis sont de priorité
+\textsc{Haute}.
+
+{\color{red}\textbf{La section est à compléter avec les tables de
+    décision d'autres cas d'utilisation.}}
+
+\begin{table}[htbp!]
+\begin{tabular}{|p{0.6\linewidth}|c|c|c|c|}
+\hline
+Numéro de test
+&1&2&3&4\\
+\hline
+\hline
+Identifiant/code de la chambre bien formé (non \nullvalue et non vide)
+&F&T&T&T\\
+\hline
+Graine pour la génération des clefs bien formée ($\neq$ \nullvalue $\land$ $\neq$ vide)
+& &F&T&T\\
+\hline
+Chambre inexistante avec ce code
+& & &F&T\\
+\hline
+\hline
+Création acceptée
+&F&F&F&T\\
+\hline
+\hline
+Nombre de jeux de test 
+&2&2&1&1\\
+\hline
+\end{tabular}
+\caption{Cas d'utilisation <<~créer une chambre~>>}
+\end{table}
+
+\newpage
+
+\section{Conception}
+
+\subsection{Liste des classes}
+
+{\color{red}\textbf{La liste des classes suivante est à compléter.}}
+
+À la suite d'un parcours des diagrammes de cas d'utilisation et d'une
+relecture de l'étude de cas, voici la liste de classes avec quelques
+attributs:
+\begin{compactitem}
+\item \textsf{GestionClefsHotel} (la façade),
+\item \textsf{Util} (classe utilitaire avec l'attribut de classe
+  \textsf{TAILLE\_CLEF}, et les méthodes de classe
+  \textsf{genererUneNouvelleClef} et \textsf{clefToString}),
+\item ...
+\end{compactitem}
+\newpage
+
+\subsection{Diagramme de classes}
+
+{\color{red}\textbf{Le diagramme de classes suivant est à compléter.}}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.6]{DiagrammesDeClasses/gestionclefshotel_uml_diag_classes}
+\caption{Diagramme de classes}
+\end{center}
+\label{umlet_diag_classes}
+\end{figure}
+
+\newpage
+
+\subsection{Diagrammes de séquence}
+
+{\color{red}\textbf{La section est à compléter avec les diagrammes de séquence de vos cas d'utilisation les plus importants.}}
+
+\newpage
+
+\section{Fiche des classes}
+
+{\color{red}\textbf{La section est à compléter avec les fiches de vos
+    classes les plus importantes. La première fiche, celle de la
+    façade, est aussi à compléter.}}
+
+\subsection{Classe \textsf{GestionClefsHotel}}
+
+\begin{center}
+\begin{longtable}{|p{15cm}|} 
+\hline
+\multicolumn{1}{|c|}{{\Large \textsf{GestionClefsHotel}}} \\
+\hline
+%\cmt{attributs}\\
+\cmt{attributs <<~association~>>}\\
+$-$ chambres : collection de @Chambre \\
+\hline
+\cmt{constructeur} \\
+$+$ GestionClefsHotel()\\
+%$+$ destructeur()\\
+$+$ invariant():booléen\\
+\cmt{operations <<~cas d'utilisation~>>} \\
+$+$ créerChambre(String code, String graine, int sel) \\
+%\cmt{opérations de recherche} \\
+\hline  
+\end{longtable}%)
+\end{center}
+
+\newpage
+
+\section{Diagrammes de machine à états et invariants}
+
+{\color{red}\textbf{La section est à compléter avec les diagrammes de
+    machine à états et les invariants de vos classes les plus
+    importantes.}}
+
+\newpage
+
+\section{Préparation des tests unitaires}
+
+{\color{red}\textbf{La section est à compléter avec les tables de
+    décision de certaines méthodes des classes les plus importantes.}}
+
+
+\end{document}

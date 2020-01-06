@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>90</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>GestionClefsHotel
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>160</y>
+      <w>40</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>90</y>
+      <w>350</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Util
+--
+_TAILLE_CLEF:int:16_
+--
+_+générerUneNouvelleClef(String graine, int sel)_
+_+clefToString(byte[] clef): String_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>270</y>
+      <w>190</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Chambre
+--
+code:String
+graine:String
+sel:int</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

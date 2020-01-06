@@ -1,0 +1,2 @@
+job1:
+   script: "cd Code; mvn clean install -Dmaven.test.skip=true -DskipTests -Dmaven.javadoc.skip=true -Dcheckstyle.skip"
