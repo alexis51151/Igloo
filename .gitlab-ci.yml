@@ -1,2 +1,5 @@
+variables:
+  GIT_STRATEGY: clone
 job1:
-   script: "cd Code; mvn clean install -Dmaven.test.skip=true -DskipTests -Dmaven.javadoc.skip=true -Dcheckstyle.skip"
+  script: "source /etc/profile.d/maven.sh; cd Code; mvn clean install -Dmaven.test.skip=true -DskipTests -Dmaven.javadoc.skip=true -Dcheckstyle.skip"
+  tags: ['2020']
