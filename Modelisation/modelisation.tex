@@ -132,12 +132,12 @@ indiquons uniquement leur niveau de priorité.
 {\color{red}\textbf{La précondition suivante est à compléter.}}
 
 \begin{compactitem}
-\usecase{\haute}{Créer une chambre programme}
+\usecase{\haute}{Créer une chambre}
         %% précondition
         {identifiant/code de la chambre bien formé (non \nullvalue et non
           vide) $\land$ chambre avec ce code inexistante $\land$
           graine pour la génération des clefs bien formée (non
-          \nullvalue et non vide}
+          \nullvalue et non vide)}
         %% postcondition
         {chambre avec cet identifiant existante}
 
@@ -205,8 +205,9 @@ relecture de l'étude de cas, voici la liste de classes avec quelques
 attributs:
 \begin{compactitem}
 \item \textsf{GestionClefsHotel} (la façade),
-\item \textsf{Util} (classe utilitaire avec l'attribut de classe
-  \textsf{TAILLE\_CLEF}, et les méthodes de classe
+\item \textsf{Chambre}~---~ identifiant, graine,
+\item \textsf{Util} (classe utilitaire déjà programmée)~---~'attribut
+  de classe \textsf{TAILLE\_CLEF}, méthodes de classe
   \textsf{genererUneNouvelleClef} et \textsf{clefToString}),
 \item ...
 \end{compactitem}
@@ -254,7 +255,7 @@ $+$ GestionClefsHotel()\\
 %$+$ destructeur()\\
 $+$ invariant():booléen\\
 \cmt{operations <<~cas d'utilisation~>>} \\
-$+$ créerChambre(String code, String graine, int sel) \\
+$+$ créerChambre(String code, String graine) \\
 %\cmt{opérations de recherche} \\
 \hline  
 \end{longtable}%)
