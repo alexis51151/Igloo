@@ -165,22 +165,18 @@ indiquons uniquement leur niveau de priorité.
           graine de la serrure bien formée (non \nullvalue et non
           vide) $\land$ nouvelle graine ou nouveau sel différents}
         {une nouvelle graine $\lor$ un nouveau sel
-          \newline$\land$ première clef de la nouvelle
-          paire $\neq$ première clef de l'ancienne paire \newline$\land$
-          première clef de la nouvelle paire $\neq$ seconde clef de
-          l'ancienne paire \newline$\land$ seconde clef de la nouvelle
-          paire $\neq$ première clef de l'ancienne paire \newline$\land$
-          seconde clef de la nouvelle paire $\neq$ seconde clef de
-          l'ancienne paire}
-
-\usecase{\haute}{Ré-initialiser les clefs d'une serrure}
-        %% précondition
-        {identifiant de la serrure bien formé (non \nullvalue et non
-          vide) $\land$ serrure avec cet identifiant existante $\land$
-        graine de la serrure bien formé (non \nullvalue et non vide)}
-        %% postcondition
-        {serrure avec ce identifiant existante $\land$ les deux clefs
-          sont les deux premières valeurs générées à partir de la graine}
+          \newline
+          $\land$ première clef de la nouvelle paire $\neq$ première
+          clef de l'ancienne paire
+          \newline
+          $\land$ première clef de la nouvelle paire $\neq$ seconde
+          clef de l'ancienne paire
+          \newline
+          $\land$ seconde clef de la nouvelle paire $\neq$ première
+          clef de l'ancienne paire
+          \newline
+          $\land$ seconde clef de la nouvelle paire $\neq$ seconde
+          clef de l'ancienne paire}
 
 \smallskip
 
