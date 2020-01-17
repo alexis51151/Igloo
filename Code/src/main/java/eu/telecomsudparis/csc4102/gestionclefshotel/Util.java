@@ -1,6 +1,6 @@
 package eu.telecomsudparis.csc4102.gestionclefshotel;
 
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -54,7 +54,7 @@ public final class Util {
 			final int nbIterations = 65536 / 16; // les tests sont longs ou moins longs...
 			final int tailleClefEnBit = TAILLE_CLEF * 8;
 			nouvelleClef = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512")
-					.generateSecret(new PBEKeySpec(graine.toCharArray(), sel.getBytes(Charset.forName("UTF-8")),
+					.generateSecret(new PBEKeySpec(graine.toCharArray(), sel.getBytes(StandardCharsets.UTF_8),
 							nbIterations, tailleClefEnBit))
 					.getEncoded();
 		} catch (InvalidKeySpecException | NoSuchAlgorithmException ex) {
