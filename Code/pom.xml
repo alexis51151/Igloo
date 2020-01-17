@@ -21,10 +21,10 @@ Contributor(s):
 	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>eu.telecomsudparis.csc4102</groupId>
-  <artifactId>csc4102-prenom1Nom1-prenom2Nom2</artifactId>
+  <artifactId>csc4102-gestionclefshotel</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Solution du binôme Nom1 Prénom1 et Nom2 Prénom2</name>
+  <name>Gestion des clefs d'un hôtel avec des serrures programmables</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -72,7 +72,7 @@ Contributor(s):
   </dependencies>
   <build>
     <plugins>
-      <!-- enforce JDK version >= 9 and Maven version >= 3.0.4 -->
+      <!-- enforce JDK version >= 9 and Maven version >= 3.5 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -89,12 +89,12 @@ Contributor(s):
                   <version>[9,)</version>
                   <message>
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-You need a JDK version >= 9 and a Maven version >= 3.0.4
+You need a JDK version >= 9 and a Maven version >= 3.5
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</message>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>[3.0.4,)</version>
-                  <message>You need Maven 3.0.4 or later</message>
+                  <version>[3.5,)</version>
+                  <message>You need Maven 3.5 or later</message>
                 </requireMavenVersion>
               </rules>
             </configuration>
@@ -161,11 +161,12 @@ You need a JDK version >= 9 and a Maven version >= 3.0.4
           <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
 	</configuration>
       </plugin>
-      <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-javadoc-plugin</artifactId>
-	<version>3.1.1</version>
-      </plugin>
+      <!-- pb avec Java 9 ; fonctionne avec Java 11-->
+      <!-- <plugin> -->
+      <!--   <groupId>org.apache.maven.plugins</groupId> -->
+      <!--   <artifactId>maven-javadoc-plugin</artifactId> -->
+      <!--   <version>3.1.1</version> -->
+      <!-- </plugin> -->
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
@@ -176,7 +177,7 @@ You need a JDK version >= 9 and a Maven version >= 3.0.4
 	<artifactId>maven-checkstyle-plugin</artifactId>
 	<version>3.0.0</version>
 	<configuration>
-	  <configLocation>config/checkstyle/sun_checks_adapted_to_tsp_csc_pour_eclipse_2.xml</configLocation>
+	  <configLocation>config/checkstyle/sun_checks_adapted_to_tsp_csc_pour_maven_greffon_3_0_0.xml</configLocation>
 	  <encoding>UTF-8</encoding>
 	  <consoleOutput>true</consoleOutput>
 	  <failsOnError>false</failsOnError>
