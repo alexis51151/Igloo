@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
-  <zoom_level>9</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>63</y>
-      <w>225</w>
-      <h>36</h>
+      <x>140</x>
+      <y>252</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Créer une chambre</panel_attributes>
     <additional_attributes/>
@@ -14,10 +14,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>72</y>
-      <w>126</w>
-      <h>117</h>
+      <x>56</x>
+      <y>259</y>
+      <w>98</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;110.0;120.0;10.0</additional_attributes>
@@ -26,9 +26,9 @@
     <id>UMLActor</id>
     <coordinates>
       <x>0</x>
-      <y>135</y>
-      <w>108</w>
-      <h>90</h>
+      <y>308</y>
+      <w>84</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Administrateur</panel_attributes>
     <additional_attributes/>
@@ -37,9 +37,9 @@
     <id>UMLActor</id>
     <coordinates>
       <x>0</x>
-      <y>639</y>
-      <w>108</w>
-      <h>90</h>
+      <y>700</y>
+      <w>84</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Réceptionniste</panel_attributes>
     <additional_attributes/>
@@ -47,10 +47,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>549</y>
-      <w>126</w>
-      <h>144</h>
+      <x>56</x>
+      <y>630</y>
+      <w>98</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;140.0;120.0;10.0</additional_attributes>
@@ -59,9 +59,9 @@
     <id>UMLActor</id>
     <coordinates>
       <x>0</x>
-      <y>387</y>
-      <w>108</w>
-      <h>90</h>
+      <y>504</y>
+      <w>84</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Gérant d'étage</panel_attributes>
     <additional_attributes/>
@@ -69,10 +69,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>540</y>
-      <w>225</w>
-      <h>36</h>
+      <x>140</x>
+      <y>623</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Lister les chambres</panel_attributes>
     <additional_attributes/>
@@ -80,10 +80,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>117</y>
-      <w>126</w>
-      <h>72</h>
+      <x>56</x>
+      <y>294</y>
+      <w>98</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;60.0;120.0;10.0</additional_attributes>
@@ -91,10 +91,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>108</y>
-      <w>225</w>
-      <h>36</h>
+      <x>140</x>
+      <y>287</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Retirer une chambre</panel_attributes>
     <additional_attributes/>
@@ -102,10 +102,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>162</x>
-      <y>36</y>
-      <w>495</w>
-      <h>891</h>
+      <x>126</x>
+      <y>231</y>
+      <w>385</w>
+      <h>693</h>
     </coordinates>
     <panel_attributes>GestionClefsHôtel
 halign=left</panel_attributes>
@@ -114,10 +114,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>153</y>
-      <w>225</w>
-      <h>36</h>
+      <x>140</x>
+      <y>322</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Créer un badge d'accès</panel_attributes>
     <additional_attributes/>
@@ -125,10 +125,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>153</y>
-      <w>126</w>
-      <h>36</h>
+      <x>56</x>
+      <y>322</y>
+      <w>98</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
@@ -136,10 +136,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>585</y>
-      <w>378</w>
-      <h>36</h>
+      <x>140</x>
+      <y>658</y>
+      <w>294</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Enregistrer l'occupation d'une chambre par un client</panel_attributes>
     <additional_attributes/>
@@ -147,10 +147,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>594</y>
-      <w>126</w>
-      <h>99</h>
+      <x>56</x>
+      <y>665</y>
+      <w>98</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;90.0;120.0;10.0</additional_attributes>
@@ -158,10 +158,10 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>630</y>
-      <w>225</w>
-      <h>36</h>
+      <x>140</x>
+      <y>693</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Créer un client dans le système</panel_attributes>
     <additional_attributes/>
@@ -169,10 +169,10 @@ halign=left</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>639</y>
-      <w>126</w>
-      <h>54</h>
+      <x>56</x>
+      <y>700</y>
+      <w>98</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;40.0;120.0;10.0</additional_attributes>
@@ -180,43 +180,21 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>675</y>
-      <w>342</w>
-      <h>36</h>
+      <x>147</x>
+      <y>476</y>
+      <w>252</w>
+      <h>28</h>
     </coordinates>
-    <panel_attributes>Donner un badge d'accès pour une chambre libre</panel_attributes>
+    <panel_attributes>Récupérer graine et sel pour générer une clé</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>666</y>
-      <w>126</w>
-      <h>45</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;120.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>189</x>
-      <y>351</y>
-      <w>225</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Initialiser les serrures</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>81</x>
-      <y>360</y>
-      <w>126</w>
-      <h>81</h>
+      <x>63</x>
+      <y>483</y>
+      <w>98</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;70.0;120.0;10.0</additional_attributes>
@@ -224,45 +202,23 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>180</x>
-      <y>198</y>
-      <w>225</w>
-      <h>36</h>
+      <x>140</x>
+      <y>735</y>
+      <w>175</w>
+      <h>28</h>
     </coordinates>
-    <panel_attributes>réinitialiser un badge d'accès</panel_attributes>
+    <panel_attributes>Libérer une chambre</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>162</y>
-      <w>126</w>
-      <h>72</h>
+      <x>56</x>
+      <y>721</y>
+      <w>98</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;120.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>180</x>
-      <y>720</y>
-      <w>225</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>Récupèrer un badge d'accès</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>72</x>
-      <y>666</y>
-      <w>126</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;120.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;40.0</additional_attributes>
   </element>
 </diagram>
