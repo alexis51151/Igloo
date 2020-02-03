@@ -14,3 +14,22 @@ exposer votre point de vue.
 - [x] Action (réalisée)
     - RÉPONSE et éventuelles remarques de votre part, 
 
+
+# Suivi du lun. 03 févr. 2020 11:26:13 CET
+Denis Conan
+- [] mettez à jour la page de titre avec vos nom et prénom
+- [] diagramme de cas d'utilisation
+    - [] « récupération... » : formuler avec plutôt une expression verbale
+         qu'une expression nominale (« récupérer... ») ; c'est la graine et le
+         sel de quoi ?
+- [] précondition et postcondition
+    - [] « enregistrer... » : il manque la condition sur la forme de
+         l'identifiant du badge, non ?
+    - [] « libérer... » : le terme « badge rendu » n'est-il pas plutôt dans la
+         postcondition ?
+    - [] « créer un badge... » : que signifie la formulation « identifiant
+         avec ce badge unique » ? c'est bizarre
+- [] table de décision des tests de validation
+    - [] à adapter selon remarques précédentes
+
+---
