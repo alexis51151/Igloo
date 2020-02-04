@@ -22,7 +22,7 @@ Denis Conan
     - [x] « récupération... » : formuler avec plutôt une expression verbale
          qu'une expression nominale (« récupérer... ») ; c'est la graine et le
          sel de quoi ?
-	- J'ai modifié en "Récupérer graine et sel pour générer une clé"
+	- J'ai modifié en "Récupérer graine et sel d'une chambre"
 - [?] précondition et postcondition
     - [x] « enregistrer... » : il manque la condition sur la forme de
          l'identifiant du badge, non ?

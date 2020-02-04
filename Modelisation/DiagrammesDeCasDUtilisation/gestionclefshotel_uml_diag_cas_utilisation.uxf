@@ -185,7 +185,8 @@ halign=left</panel_attributes>
       <w>252</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>Récupérer graine et sel pour générer une clé</panel_attributes>
+    <panel_attributes>Récupérer graine et sel de la chambre
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
