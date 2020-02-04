@@ -26,9 +26,8 @@ Denis Conan
 - [?] précondition et postcondition
     - [x] « enregistrer... » : il manque la condition sur la forme de
          l'identifiant du badge, non ?
-    - [?] « libérer... » : le terme « badge rendu » n'est-il pas plutôt dans la
+    - [x] « libérer... » : le terme « badge rendu » n'est-il pas plutôt dans la
          postcondition ?
-	- Nous nous étions plaçé du point de vue du réceptionniste, qui doit attendre que le client lui rende le badge pour libérer la chambre
     - [x] « créer un badge... » : que signifie la formulation « identifiant
          avec ce badge unique » ? c'est bizarre
 	- C'était dans le sens de la négation de la postcondition : il n'existe pas de badge avec l'identifiant qui vient d'être crée. J'ai modifié la tournure de phrase pour être plus compréhensible en "badge avec cet identifiant inexistant"
