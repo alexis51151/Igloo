@@ -1,44 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.3.0">
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
   <zoom_level>10</zoom_level>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>550</x>
-      <y>70</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>_s:Serrure_</panel_attributes>
-    <additional_attributes/>
-  </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>110</x>
-      <y>0</y>
-      <w>80</w>
-      <h>110</h>
+      <x>390</x>
+      <y>160</y>
+      <w>120</w>
+      <h>100</h>
     </coordinates>
-    <panel_attributes>Testeur</panel_attributes>
+    <panel_attributes>Réceptionniste</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>280</x>
-      <y>70</y>
+      <x>580</x>
+      <y>230</y>
       <w>150</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>_:GestionSerrures_</panel_attributes>
+    <panel_attributes>_:GestionClefsHotel_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>90</y>
+      <x>440</x>
+      <y>250</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -48,8 +36,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>90</y>
+      <x>640</x>
+      <y>250</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -59,8 +47,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>140</x>
-      <y>130</y>
+      <x>440</x>
+      <y>290</y>
       <w>20</w>
       <h>430</h>
     </coordinates>
@@ -70,8 +58,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>340</x>
-      <y>140</y>
+      <x>640</x>
+      <y>300</y>
       <w>20</w>
       <h>410</h>
     </coordinates>
@@ -81,10 +69,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>590</x>
-      <y>320</y>
-      <w>20</w>
-      <h>200</h>
+      <x>890</x>
+      <y>480</y>
+      <w>30</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -92,131 +80,60 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>70</x>
-      <y>120</y>
-      <w>370</w>
+      <x>350</x>
+      <y>280</y>
+      <w>410</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-essayerOuvrirSerrure(id,premiereClef,secondeClef)
+créerOccupation(idChambre,idClient,dateDébut,dateFin)
 </panel_attributes>
-    <additional_attributes>270.0;20.0;90.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
-      <y>160</y>
-      <w>300</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-s = chercherSerrure(id):Serrure</panel_attributes>
-    <additional_attributes>10.0;40.0;60.0;40.0;60.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>290.0;20.0;110.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>290</x>
-      <y>220</y>
+      <x>590</x>
+      <y>380</y>
       <w>620</w>
       <h>320</h>
     </coordinates>
     <panel_attributes>opt
 --
-[id non null et non vide &amp;&amp; s != null
-&amp;&amp; premiereClef non null et non vide
-&amp;&amp; secondeClef non null et non vide]</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>820</x>
-      <y>70</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Util</panel_attributes>
+[idChambre non null et non vide
+&amp;&amp; idClient non null et non vide]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>300</y>
-      <w>360</w>
+      <x>610</x>
+      <y>460</y>
+      <w>340</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-essayerDOuvrirUnePort(premierClef,secondeClef)
+ o = ChercherOccupation(idChambre,idClient)
 </panel_attributes>
-    <additional_attributes>290.0;20.0;60.0;20.0</additional_attributes>
+    <additional_attributes>280.0;20.0;50.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>90</y>
-      <w>30</w>
-      <h>280</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>860</x>
-      <y>450</y>
-      <w>20</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
-      <y>470</y>
-      <w>280</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-</panel_attributes>
-    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
-      <y>430</y>
-      <w>280</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-secondeClef=
-genererUneNouvelleClef(graine,sel)</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
-      <y>500</y>
-      <w>260</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-</panel_attributes>
-    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>150</x>
+      <x>660</x>
       <y>530</y>
+      <w>250</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>690</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -227,8 +144,8 @@ genererUneNouvelleClef(graine,sel)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>550</y>
+      <x>440</x>
+      <y>710</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -238,8 +155,8 @@ genererUneNouvelleClef(graine,sel)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>540</y>
+      <x>640</x>
+      <y>700</y>
       <w>30</w>
       <h>50</h>
     </coordinates>
@@ -249,8 +166,8 @@ genererUneNouvelleClef(graine,sel)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>530</y>
+      <x>1160</x>
+      <y>690</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -260,19 +177,19 @@ genererUneNouvelleClef(graine,sel)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>590</x>
-      <y>510</y>
+      <x>890</x>
+      <y>540</y>
       <w>30</w>
-      <h>90</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>590</x>
-      <y>90</y>
+      <x>890</x>
+      <y>250</y>
       <w>30</w>
       <h>250</h>
     </coordinates>
@@ -280,28 +197,29 @@ genererUneNouvelleClef(graine,sel)</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
-      <y>330</y>
-      <w>390</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-t = tester(premierClef,secondeClef):booléen</panel_attributes>
-    <additional_attributes>10.0;40.0;60.0;40.0;60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>550</x>
-      <y>380</y>
-      <w>350</w>
-      <h>130</h>
+      <x>620</x>
+      <y>440</y>
+      <w>570</w>
+      <h>250</h>
     </coordinates>
-    <panel_attributes>opt
+    <panel_attributes>loop
 --
-[t]</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>480</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+get
+</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
