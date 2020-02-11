@@ -23,7 +23,7 @@ Denis Conan
          qu'une expression nominale (« récupérer... ») ; c'est la graine et le
          sel de quoi ?
 	- J'ai modifié en "Récupérer graine et sel d'une chambre"
-- [?] précondition et postcondition
+- [x] précondition et postcondition
     - [x] « enregistrer... » : il manque la condition sur la forme de
          l'identifiant du badge, non ?
     - [x] « libérer... » : le terme « badge rendu » n'est-il pas plutôt dans la
@@ -42,10 +42,11 @@ Denis Conan
   nouveaux éléments uniquement
 - dépôt : ne mettez pas de fichier temporaire dans le dépôt
 - [] diagramme de classes
-    - [] une chambre doit avoir deux clefs
-    - [] un Client occupe toujours une Chambre ?
-    - [] il manque le nom de l'association entre Occupation et Badge
-    - [] tout Badge est associé à une Occupation ?
+    - [x] une chambre doit avoir deux clefs
+    - [x] un Client occupe toujours une Chambre ?
+	- 0 ou 1 chambre
+    - [x] il manque le nom de l'association entre Occupation et Badge
+    - [x] tout Badge est associé à une Occupation ?
 - [] diagrammes de séquence
     - [] « créer une chambre » : ok
     - [] « créer occupation » : il n'y a pas de cas d'utilisation avec ce nom
