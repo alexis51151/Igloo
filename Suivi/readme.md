@@ -35,3 +35,30 @@ Denis Conan
     - [x] à adapter selon remarques précédentes
 
 ---
+
+# Suivi du mar. 11 févr. 2020 14:41:42 CET
+Denis Conan
+- merci pour l'indication des commentaires pris en compte ; je regarde les
+  nouveaux éléments uniquement
+- dépôt : ne mettez pas de fichier temporaire dans le dépôt
+- [] diagramme de classes
+    - [] une chambre doit avoir deux clefs
+    - [] un Client occupe toujours une Chambre ?
+    - [] il manque le nom de l'association entre Occupation et Badge
+    - [] tout Badge est associé à une Occupation ?
+- [] diagrammes de séquence
+    - [] « créer une chambre » : ok
+    - [] « créer occupation » : il n'y a pas de cas d'utilisation avec ce nom
+         + si c'est le check-in, il manque l'identifiant du badge d'accès en
+           argument
+         + les dates ne sont a priori pas des chaînes de caractères ; donc,
+           les vérifications « non vide » ne sont a priori pas pertinentes
+         + il manque la gestion des badges d'accès
+         + il manque la mise à jour des objets s et c manipulés
+         + il n'y a pas d'instruction dans un diagramme de séquence, mais
+           uniquement des messages, c'est-à-dire des appels d'opération ; une
+           affetation d'attribut ne se montre pas dans un diagramme de séquence
+- je vous encourage à continuer la modélisation en hors présentiel d'ici le
+  début de la séance 4
+
+---
