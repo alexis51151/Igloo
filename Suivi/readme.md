@@ -41,15 +41,15 @@ Denis Conan
 - merci pour l'indication des commentaires pris en compte ; je regarde les
   nouveaux éléments uniquement
 - dépôt : ne mettez pas de fichier temporaire dans le dépôt
-- [] diagramme de classes
+- [x] diagramme de classes
     - [x] une chambre doit avoir deux clefs
     - [x] un Client occupe toujours une Chambre ?
 	- 0 ou 1 chambre
     - [x] il manque le nom de l'association entre Occupation et Badge
     - [x] tout Badge est associé à une Occupation ?
-- [] diagrammes de séquence
-    - [] « créer une chambre » : ok
-    - [] « créer occupation » : il n'y a pas de cas d'utilisation avec ce nom
+- [x] diagrammes de séquence
+    - [x] « créer une chambre » : ok
+    - [x] « créer occupation » : il n'y a pas de cas d'utilisation avec ce nom
          + si c'est le check-in, il manque l'identifiant du badge d'accès en
            argument
          + les dates ne sont a priori pas des chaînes de caractères ; donc,

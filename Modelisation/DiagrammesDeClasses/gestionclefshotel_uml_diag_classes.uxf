@@ -3,8 +3,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>225</y>
+      <x>207</x>
+      <y>216</y>
       <w>216</w>
       <h>72</h>
     </coordinates>
@@ -16,8 +16,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>225</y>
+      <x>540</x>
+      <y>216</y>
       <w>315</w>
       <h>90</h>
     </coordinates>
@@ -32,8 +32,8 @@ _+clefToString(byte[] clef): String_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>387</y>
+      <x>207</x>
+      <y>378</y>
       <w>216</w>
       <h>99</h>
     </coordinates>
@@ -41,14 +41,16 @@ _+clefToString(byte[] clef): String_</panel_attributes>
 --
 id:String
 graine:String
-sel:int</panel_attributes>
+sel:int
+clef1:Byte[]
+clef2:Byte[]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>828</x>
-      <y>522</y>
+      <x>720</x>
+      <y>513</y>
       <w>189</w>
       <h>108</h>
     </coordinates>
@@ -62,8 +64,8 @@ clef2:Byte[]</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>459</x>
-      <y>522</y>
+      <x>351</x>
+      <y>513</y>
       <w>216</w>
       <h>108</h>
     </coordinates>
@@ -78,8 +80,8 @@ dateFin:Date
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>657</y>
+      <x>207</x>
+      <y>648</y>
       <w>216</w>
       <h>108</h>
     </coordinates>
@@ -96,8 +98,8 @@ prénom:String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>288</y>
+      <x>306</x>
+      <y>279</y>
       <w>27</w>
       <h>117</h>
     </coordinates>
@@ -108,13 +110,13 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>477</y>
+      <x>306</x>
+      <y>468</y>
       <w>45</w>
       <h>198</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1
+m1=0..1
 m2=0..1
 </panel_attributes>
     <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
@@ -122,8 +124,8 @@ m2=0..1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>558</y>
+      <x>306</x>
+      <y>549</y>
       <w>63</w>
       <h>27</h>
     </coordinates>
@@ -133,8 +135,8 @@ m2=0..1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>522</x>
-      <y>261</y>
+      <x>414</x>
+      <y>252</y>
       <w>144</w>
       <h>27</h>
     </coordinates>
@@ -144,8 +146,8 @@ m2=0..1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>108</x>
-      <y>288</y>
+      <x>0</x>
+      <y>279</y>
       <w>333</w>
       <h>603</h>
     </coordinates>
@@ -156,13 +158,14 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>558</y>
+      <x>558</x>
+      <y>549</y>
       <w>180</w>
-      <h>45</h>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1
+est utilisé pour
+m1=0..1
 m2=1
 
 </panel_attributes>
@@ -171,8 +174,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>486</x>
-      <y>288</y>
+      <x>378</x>
+      <y>279</y>
       <w>432</w>
       <h>252</h>
     </coordinates>
