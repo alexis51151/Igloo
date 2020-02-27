@@ -1,14 +1,14 @@
 package eu.telecomsudparis.csc4102.gestionclefshotel;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Occupation {
 
-    private String id;
-    private Date dateDebut;
-    private Date dateFin;
+    private final String id;
+    private LocalDate dateDebut;
+    private LocalDate dateFin;
 
-    public Occupation(String id, Date dateDebut, Date dateFin) {
+    public Occupation(String id, LocalDate dateDebut, LocalDate dateFin) {
         this.id = id;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;

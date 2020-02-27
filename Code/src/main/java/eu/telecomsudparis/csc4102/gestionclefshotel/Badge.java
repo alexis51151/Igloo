@@ -1,7 +1,7 @@
 package eu.telecomsudparis.csc4102.gestionclefshotel;
 
 public class Badge {
-	private String id;
+	private final String id;
 	private byte[] clef1;
 	private byte[] clef2;
 	private Occupation occupation;

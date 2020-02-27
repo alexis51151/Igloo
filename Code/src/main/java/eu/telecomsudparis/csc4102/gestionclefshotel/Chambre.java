@@ -5,7 +5,7 @@ import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ProblemeDansGenera
 
 public class Chambre {
 
-    private String id;
+    private final String id;
     private String graine;
     private int sel;
     private byte clef1[];
