@@ -21,7 +21,7 @@ Contributor(s):
 	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>eu.telecomsudparis.csc4102</groupId>
-  <artifactId>csc4102-gestionclefshotel</artifactId>
+  <artifactId>Alexis_LEGLAUNEC_Guillem_CANTO</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Gestion des clefs d'un hôtel avec des serrures programmables</name>
