@@ -4,13 +4,19 @@ import java.time.LocalDate;
 
 public class Occupation {
 
-    private final String id;
     private LocalDate dateDebut;
     private LocalDate dateFin;
 
-    public Occupation(String id, LocalDate dateDebut, LocalDate dateFin) {
-        this.id = id;
+    public Occupation(LocalDate dateDebut, LocalDate dateFin) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
+    }
+
+    public LocalDate getDateDebut() {
+        return dateDebut;
+    }
+
+    public LocalDate getDateFin() {
+        return dateFin;
     }
 }

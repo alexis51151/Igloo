@@ -37,7 +37,7 @@ public class Badge {
 		this.occupation = occupation;
 	}
 	
-
+	public void reinitialiserBadge(){}
 	
 	
 	
