@@ -63,3 +63,53 @@ Denis Conan
   début de la séance 4
 
 ---
+
+# Suivi du lun. 02 mars 2020 19:51:42 CET
+Denis Conan
+- je renouvelle mes excuses pour l'oubli de suivi à la séance précédente
+- diagramme de classes : ok
+- diagrammes de séquence
+    - [] « enregistrer... » : pb dessin : je ne comprends pas la barre
+         d'activation toute seule et à cheval sur le début du premier
+         fragment opt
+         + vous n'avez pas décrit la séquence avant de faire le diagramme
+           et vous avez oublié une partie de la précondition : par exemple
+           la chambre est libre
+         + les associations autour de Occupation sont non navigables vers
+           l'extérieur ; donc, pourquoi donner les références en argument
+           du constructeur ? en revanche, les associations sont navigables
+           dans l'autre sens et les références doivent être affectées
+         + la façade ne connaît pas les occupations
+         + le dernier retour d'appel est positionné trop tôt
+    - [] « libérer... » : il manque les dé-associations
+- diagramme de machine à états : ok
+- [] invariant : à exprimer en fonction des attributs : ce n'est pas
+     actuellement le cas
+- tables de décision des tests unitaires
+    - [] constructeur : lorsque l'on crée un badge, on ne fournit pas les
+         clefs en argument car les clefs sont vides
+         + idem pour occupation
+         + les postconditions sont locaux à la classe : écrire occupation.badge
+           cela signifie que l'attribut n'est pas privé (ce que nous ne
+           voulons pas) et ce n'est pas local à la classe
+    - [] estDonné... : où est utilisée cette opération dans le diagramme de
+         séquence « enregistrer... » ? comment alors construire la table de
+         décision ?
+- programmation
+    - [] Badge : revoir le constructeur avec les mêmes remarques que dans la
+         modélisation
+         + pourquoi avoir générer tous ces getters et setters ?
+    - [] Chambre : dans le constructeur, entre deux générations de clefs, le
+         sel doit être incrémenté
+    - Client : ok pour ce démarrage
+    - [] Occupation : le constructeur ne correspond pas au diagramme de
+         séquence
+    - [] façade : mes méthodes chercherXxxx ne sont-elles pas simples à
+         programmer ?
+    - [] enregistrer... : vous avez programmé cette méthode alors que vous
+         n'avez pas les premiers cas d'utilisation « créer chambre », etc. ;
+
+- je vous encourage à continuer le projet en hors présentiel avec la
+  prochaine séance ce jeudi
+
+---
