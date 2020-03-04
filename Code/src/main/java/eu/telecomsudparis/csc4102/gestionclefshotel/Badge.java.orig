@@ -76,7 +76,12 @@ public class Badge {
 		return true;
 	}
 	
+<<<<<<< HEAD
+
+
+=======
 	public void reinitialiserBadge(){}
+>>>>>>> bbc72d9052a5951eb2f6f60ab96bc42294650c6d
 	
 	
 	

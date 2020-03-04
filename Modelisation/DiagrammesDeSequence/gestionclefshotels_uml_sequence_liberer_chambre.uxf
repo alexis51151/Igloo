@@ -5,7 +5,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>368</x>
-      <y>56</y>
+      <y>88</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -16,7 +16,7 @@
     <id>UMLActor</id>
     <coordinates>
       <x>0</x>
-      <y>0</y>
+      <y>32</y>
       <w>96</w>
       <h>88</h>
     </coordinates>
@@ -27,7 +27,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>152</x>
-      <y>56</y>
+      <y>88</y>
       <w>120</w>
       <h>24</h>
     </coordinates>
@@ -38,7 +38,7 @@
     <id>Relation</id>
     <coordinates>
       <x>40</x>
-      <y>72</y>
+      <y>104</y>
       <w>24</w>
       <h>48</h>
     </coordinates>
@@ -49,7 +49,7 @@
     <id>Relation</id>
     <coordinates>
       <x>200</x>
-      <y>72</y>
+      <y>104</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
@@ -60,9 +60,9 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>40</x>
-      <y>104</y>
+      <y>136</y>
       <w>16</w>
-      <h>384</h>
+      <h>440</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -71,9 +71,9 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>200</x>
-      <y>112</y>
+      <y>144</y>
       <w>16</w>
-      <h>368</h>
+      <h>416</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -82,7 +82,7 @@
     <id>UMLGeneric</id>
     <coordinates>
       <x>400</x>
-      <y>232</y>
+      <y>264</y>
       <w>16</w>
       <h>224</h>
     </coordinates>
@@ -93,7 +93,7 @@
     <id>Relation</id>
     <coordinates>
       <x>48</x>
-      <y>96</y>
+      <y>128</y>
       <w>168</w>
       <h>32</h>
     </coordinates>
@@ -105,8 +105,8 @@ libérerChambre(id)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>208</x>
-      <y>112</y>
-      <w>240</w>
+      <y>144</y>
+      <w>264</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
@@ -117,20 +117,23 @@ c = chercherChambre(id):Chambre</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>160</x>
-      <y>192</y>
+      <y>224</y>
       <w>728</w>
-      <h>296</h>
+      <h>368</h>
     </coordinates>
     <panel_attributes>opt
 --
-[id non null et non vide &amp;&amp; c != null]</panel_attributes>
+[id non null et non vide &amp;&amp; c != null
+&amp;&amp; idBadge non null et non vide 
+&amp;&amp; badge non null et non vide]
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>616</x>
-      <y>56</y>
+      <y>88</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -141,7 +144,7 @@ c = chercherChambre(id):Chambre</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>208</x>
-      <y>224</y>
+      <y>256</y>
       <w>208</w>
       <h>32</h>
     </coordinates>
@@ -153,7 +156,7 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>648</x>
-      <y>72</y>
+      <y>104</y>
       <w>24</w>
       <h>312</h>
     </coordinates>
@@ -164,7 +167,7 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>208</x>
-      <y>424</y>
+      <y>456</y>
       <w>208</w>
       <h>32</h>
     </coordinates>
@@ -176,7 +179,7 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>48</x>
-      <y>456</y>
+      <y>536</y>
       <w>168</w>
       <h>32</h>
     </coordinates>
@@ -188,7 +191,7 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>40</x>
-      <y>480</y>
+      <y>568</y>
       <w>24</w>
       <h>64</h>
     </coordinates>
@@ -199,18 +202,18 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>200</x>
-      <y>472</y>
+      <y>552</y>
       <w>24</w>
-      <h>72</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>616</x>
-      <y>440</y>
+      <y>472</y>
       <w>24</w>
       <h>24</h>
     </coordinates>
@@ -221,18 +224,18 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>400</x>
-      <y>448</y>
+      <y>480</y>
       <w>24</w>
-      <h>96</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>400</x>
-      <y>72</y>
+      <y>104</y>
       <w>24</w>
       <h>176</h>
     </coordinates>
@@ -243,7 +246,7 @@ libérer()</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>384</x>
-      <y>288</y>
+      <y>320</y>
       <w>496</w>
       <h>176</h>
     </coordinates>
@@ -256,7 +259,7 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>408</x>
-      <y>352</y>
+      <y>384</y>
       <w>264</w>
       <h>32</h>
     </coordinates>
@@ -268,7 +271,7 @@ libérer()</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>632</x>
-      <y>392</y>
+      <y>424</y>
       <w>48</w>
       <h>48</h>
     </coordinates>
@@ -279,7 +282,7 @@ libérer()</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>648</x>
-      <y>368</y>
+      <y>400</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -290,11 +293,91 @@ libérer()</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>648</x>
-      <y>376</y>
+      <y>408</y>
       <w>24</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>208</x>
+      <y>520</y>
+      <w>584</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+désaciosser()</panel_attributes>
+    <additional_attributes>710.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>208</x>
+      <y>536</y>
+      <w>584</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;20.0;710.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>776</x>
+      <y>520</y>
+      <w>16</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>776</x>
+      <y>104</y>
+      <w>24</w>
+      <h>432</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;520.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>776</x>
+      <y>560</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>736</x>
+      <y>88</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>_b:Badge_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>208</x>
+      <y>184</y>
+      <w>264</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+b = chercherBadge(idBadge):Badge</panel_attributes>
+    <additional_attributes>10.0;40.0;60.0;40.0;60.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
