@@ -93,9 +93,10 @@ Denis Conan
          + les postconditions sont locaux à la classe : écrire occupation.badge
            cela signifie que l'attribut n'est pas privé (ce que nous ne
            voulons pas) et ce n'est pas local à la classe
-    - [] estDonné... : où est utilisée cette opération dans le diagramme de
+    - [?] estDonné... : où est utilisée cette opération dans le diagramme de
          séquence « enregistrer... » ? comment alors construire la table de
          décision ?
+	 Réponse : à quelle opération faites-vous référence ? A quoi correspond estDonné ? 
 - programmation
     - [] Badge : revoir le constructeur avec les mêmes remarques que dans la
          modélisation
