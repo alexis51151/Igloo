@@ -1,6 +1,7 @@
 package eu.telecomsudparis.csc4102.gestionclefshotel;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Occupation {
 
@@ -14,11 +15,11 @@ public class Occupation {
         this.dateFin = dateFin;
     }
 
-    public LocalDate getDateDebut() {
+    public Date getDateDebut() {
         return dateDebut;
     }
 
-    public LocalDate getDateFin() {
+    public Date getDateFin() {
         return dateFin;
     }
 }

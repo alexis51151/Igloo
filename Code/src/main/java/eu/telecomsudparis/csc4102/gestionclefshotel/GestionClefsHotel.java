@@ -7,6 +7,7 @@ import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ClientNonPresent;
 import eu.telecomsudparis.csc4102.gestionclefshotel.exception.OccupationMalParametree;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Map.Entry;
@@ -30,18 +31,16 @@ public class GestionClefsHotel {
 	private Map<String, Client> clients;
 	private Map<String, Badge> badges;
 
-	public Chambre chercherChambre(String id){return null;}
-	public Client chercherClient(String id){return null;}
-	public Badge chercherBadge(String id){return null;}
+
 	public Occupation chercherOccupation(String idChambre, String idBadge, String idClient){return null;}
 
 
-	public Occupation creerOccupation(String idBadge, String idClient, String idChambre, LocalDate dateDebut, LocalDate dateFin)
+	public Occupation creerOccupation(String id, String idBadge, String idClient, String idChambre, Date dateDebut, Date dateFin)
 			throws ChaineDeCaracteresNullOuVide, ChambreNonPresente, ClientNonPresent, BadgeNonPresent, OccupationMalParametree{
 
-		Chambre s = chercherChambre(idChambre);
-		Client c = chercherClient(idClient);
-		Badge b = chercherBadge(idBadge);
+		Optional<Chambre> s = chercherChambre(idChambre);
+		Optional<Client> c = chercherClient(idClient);
+		Optional<Badge> b = chercherBadge(idBadge);
 		if (idClient == null || idClient.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant client null ou vide non autorisé");
 		}
@@ -51,24 +50,24 @@ public class GestionClefsHotel {
 		if (idBadge == null || idBadge.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant client null ou vide non autorisé");
 		}
-		if (s == null)
+		if (! s.isPresent())
 			throw new ChambreNonPresente("chambre introuvable");
 
-		if (c == null) {
+		if (! c.isPresent()) {
 			throw new ClientNonPresent("client introuvable");
 		}
-		if (b == null) {
+		if (! b.isPresent()) {
 			throw new BadgeNonPresent("badge introuvable");
 		}
 
-		b.reinitialiserBadge();
+		b.get().reinitialiserBadge();
 		Occupation o = chercherOccupation(idChambre, idBadge, idClient);
 
 		if(o != null || dateDebut == null || dateFin == null){
 			throw new OccupationMalParametree("Occupation déjà existante ou dates null");
 		}
 
-		return new Occupation(dateDebut, dateFin);
+		return new Occupation(id, dateDebut, dateFin);
 
 
 	}
@@ -108,7 +107,21 @@ public class GestionClefsHotel {
 		}
 		return Optional.ofNullable(chambres.get(identifiant));
 	}
-	
+
+	public Optional<Client> chercherClient(final String id) throws ChaineDeCaracteresNullOuVide{
+		if(id == null || id.equals("")){
+			throw new ChaineDeCaracteresNullOuVide("identifiant null ou vide non autorisé");
+		}
+		return Optional.ofNullable(clients.get(id));
+	}
+
+	public Optional<Badge> chercherBadge(final String id) throws ChaineDeCaracteresNullOuVide{
+		if(id == null || id.equals("")){
+			throw new ChaineDeCaracteresNullOuVide("identifiant null ou vide non autorisé");
+		}
+		return Optional.ofNullable(badges.get(id));
+	}
+
 	public void libérerChambre(final String identifiant) throws ChaineDeCaracteresNullOuVide, ChambreNonPresente {
 		if (identifiant == null || identifiant.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant null ou vide non autorisé");

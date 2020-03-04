@@ -100,14 +100,14 @@ Denis Conan
     - [] Badge : revoir le constructeur avec les mêmes remarques que dans la
          modélisation
          + pourquoi avoir générer tous ces getters et setters ?
-    - [] Chambre : dans le constructeur, entre deux générations de clefs, le
+    - [x] Chambre : dans le constructeur, entre deux générations de clefs, le
          sel doit être incrémenté
     - Client : ok pour ce démarrage
     - [] Occupation : le constructeur ne correspond pas au diagramme de
          séquence
-    - [] façade : mes méthodes chercherXxxx ne sont-elles pas simples à
+    - [x] façade : mes méthodes chercherXxxx ne sont-elles pas simples à
          programmer ?
-    - [] enregistrer... : vous avez programmé cette méthode alors que vous
+    - [x] enregistrer... : vous avez programmé cette méthode alors que vous
          n'avez pas les premiers cas d'utilisation « créer chambre », etc. ;
 
 - je vous encourage à continuer le projet en hors présentiel avec la

@@ -19,6 +19,7 @@ public class Chambre {
         this.graine = graine;
         this.sel = sel;
         this.clef1 = Util.genererUneNouvelleClef(graine, String.format("%010d%n", this.sel));
+		sel++;
         this.clef2 = Util.genererUneNouvelleClef(graine, String.format("%010d%n", this.sel));
     }
 
