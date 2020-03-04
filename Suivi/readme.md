@@ -83,10 +83,11 @@ Denis Conan
          + le dernier retour d'appel est positionné trop tôt
     - [x] « libérer... » : il manque les dé-associations
 - diagramme de machine à états : ok
-- [] invariant : à exprimer en fonction des attributs : ce n'est pas
+- [?] invariant : à exprimer en fonction des attributs : ce n'est pas
      actuellement le cas
+	réponse : si ce sont des attributs calculés, on doit les définir dans le diagramme de classes ?
 - tables de décision des tests unitaires
-    - [] constructeur : lorsque l'on crée un badge, on ne fournit pas les
+    - [x] constructeur : lorsque l'on crée un badge, on ne fournit pas les
          clefs en argument car les clefs sont vides
          + idem pour occupation
          + les postconditions sont locaux à la classe : écrire occupation.badge
