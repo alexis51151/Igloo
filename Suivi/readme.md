@@ -81,7 +81,7 @@ Denis Conan
            dans l'autre sens et les références doivent être affectées
          + la façade ne connaît pas les occupations
          + le dernier retour d'appel est positionné trop tôt
-    - [] « libérer... » : il manque les dé-associations
+    - [x] « libérer... » : il manque les dé-associations
 - diagramme de machine à états : ok
 - [] invariant : à exprimer en fonction des attributs : ce n'est pas
      actuellement le cas
