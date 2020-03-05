@@ -96,7 +96,7 @@ Denis Conan
     - [x] estDonné... : où est utilisée cette opération dans le diagramme de
          séquence « enregistrer... » ? comment alors construire la table de
          décision ?
-	 Réponse : à quelle opération faites-vous référence ? A quoi correspond estDonné ? 
+	 Réponse : estDonné est dissocié de EnregistrerOccupation. On circonscrit estDonné au changement des clés. 
 - programmation
     - [x] Badge : revoir le constructeur avec les mêmes remarques que dans la
          modélisation

@@ -3,8 +3,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>189</x>
-      <y>54</y>
+      <x>144</x>
+      <y>63</y>
       <w>108</w>
       <h>90</h>
     </coordinates>
@@ -14,8 +14,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>117</y>
+      <x>315</x>
+      <y>126</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -25,8 +25,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>135</y>
+      <x>189</x>
+      <y>144</y>
       <w>27</w>
       <h>54</h>
     </coordinates>
@@ -36,8 +36,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>414</x>
-      <y>135</y>
+      <x>369</x>
+      <y>144</y>
       <w>27</w>
       <h>63</h>
     </coordinates>
@@ -47,8 +47,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>234</x>
-      <y>171</y>
+      <x>189</x>
+      <y>180</y>
       <w>18</w>
       <h>657</h>
     </coordinates>
@@ -58,8 +58,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>414</x>
-      <y>180</y>
+      <x>369</x>
+      <y>189</y>
       <w>18</w>
       <h>648</h>
     </coordinates>
@@ -69,20 +69,20 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>63</x>
-      <y>162</y>
-      <w>549</w>
+      <x>9</x>
+      <y>171</y>
+      <w>567</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-EstDonneAUnClient(idBadge, idClient, idChambre, idOccupation,dateDébut,dateFin)</panel_attributes>
-    <additional_attributes>390.0;20.0;210.0;20.0</additional_attributes>
+EnregistrerOccupation(idBadge, idClient, idChambre, idOccupation,dateDébut,dateFin)</panel_attributes>
+    <additional_attributes>400.0;20.0;220.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>180</y>
+      <x>378</x>
+      <y>189</y>
       <w>387</w>
       <h>54</h>
     </coordinates>
@@ -93,8 +93,8 @@ s = chercherChambre(idChambre):Chambre</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>216</y>
+      <x>378</x>
+      <y>225</y>
       <w>324</w>
       <h>54</h>
     </coordinates>
@@ -105,8 +105,8 @@ c = chercherClient(idClient):Client</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>369</x>
-      <y>342</y>
+      <x>324</x>
+      <y>351</y>
       <w>945</w>
       <h>531</h>
     </coordinates>
@@ -120,8 +120,8 @@ idBadge non null et non vide &amp;&amp; b != null]</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>243</x>
-      <y>792</y>
+      <x>198</x>
+      <y>801</y>
       <w>189</w>
       <h>36</h>
     </coordinates>
@@ -132,8 +132,8 @@ idBadge non null et non vide &amp;&amp; b != null]</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>450</x>
-      <y>549</y>
+      <x>405</x>
+      <y>558</y>
       <w>837</w>
       <h>288</h>
     </coordinates>
@@ -146,8 +146,8 @@ idBadge non null et non vide &amp;&amp; b != null]</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>639</y>
+      <x>378</x>
+      <y>648</y>
       <w>315</w>
       <h>36</h>
     </coordinates>
@@ -158,8 +158,8 @@ idBadge non null et non vide &amp;&amp; b != null]</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
-      <y>639</y>
+      <x>675</x>
+      <y>648</y>
       <w>90</w>
       <h>45</h>
     </coordinates>
@@ -170,8 +170,8 @@ _:Occupation_</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>756</x>
-      <y>684</y>
+      <x>711</x>
+      <y>693</y>
       <w>18</w>
       <h>144</h>
     </coordinates>
@@ -181,8 +181,8 @@ _:Occupation_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>252</y>
+      <x>378</x>
+      <y>261</y>
       <w>333</w>
       <h>54</h>
     </coordinates>
@@ -193,8 +193,8 @@ b = chercherBadge(idBadge):Badge</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>324</y>
+      <x>378</x>
+      <y>333</y>
       <w>504</w>
       <h>36</h>
     </coordinates>
@@ -205,8 +205,8 @@ b = chercherBadge(idBadge):Badge</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>756</x>
-      <y>477</y>
+      <x>711</x>
+      <y>486</y>
       <w>342</w>
       <h>63</h>
     </coordinates>
@@ -217,8 +217,8 @@ o2 = chercherOccupation(s):Occupation</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>603</x>
-      <y>414</y>
+      <x>558</x>
+      <y>423</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -228,8 +228,8 @@ o2 = chercherOccupation(s):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>612</x>
-      <y>414</y>
+      <x>567</x>
+      <y>423</y>
       <w>369</w>
       <h>54</h>
     </coordinates>
@@ -240,8 +240,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>747</x>
-      <y>477</y>
+      <x>702</x>
+      <y>486</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -251,8 +251,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>540</x>
-      <y>117</y>
+      <x>495</x>
+      <y>126</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -262,8 +262,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>603</x>
-      <y>135</y>
+      <x>558</x>
+      <y>144</y>
       <w>27</w>
       <h>297</h>
     </coordinates>
@@ -273,8 +273,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>684</x>
-      <y>117</y>
+      <x>639</x>
+      <y>126</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -284,8 +284,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>747</x>
-      <y>135</y>
+      <x>702</x>
+      <y>144</y>
       <w>27</w>
       <h>360</h>
     </coordinates>
@@ -295,8 +295,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>414</y>
+      <x>378</x>
+      <y>423</y>
       <w>198</w>
       <h>27</h>
     </coordinates>
@@ -306,8 +306,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>486</y>
+      <x>378</x>
+      <y>495</y>
       <w>342</w>
       <h>27</h>
     </coordinates>
@@ -317,8 +317,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>432</y>
+      <x>378</x>
+      <y>441</y>
       <w>198</w>
       <h>36</h>
     </coordinates>
@@ -329,8 +329,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>504</y>
+      <x>378</x>
+      <y>513</y>
       <w>342</w>
       <h>36</h>
     </coordinates>
@@ -341,8 +341,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>846</x>
-      <y>117</y>
+      <x>801</x>
+      <y>126</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -352,8 +352,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>909</x>
-      <y>135</y>
+      <x>864</x>
+      <y>144</y>
       <w>27</w>
       <h>180</h>
     </coordinates>
@@ -363,8 +363,8 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>297</y>
+      <x>378</x>
+      <y>306</y>
       <w>504</w>
       <h>36</h>
     </coordinates>
@@ -375,8 +375,8 @@ réinitialiserBadge(b)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>909</x>
-      <y>297</y>
+      <x>864</x>
+      <y>306</y>
       <w>18</w>
       <h>54</h>
     </coordinates>
@@ -386,8 +386,8 @@ réinitialiserBadge(b)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>675</y>
+      <x>720</x>
+      <y>684</y>
       <w>162</w>
       <h>36</h>
     </coordinates>
@@ -398,8 +398,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>999</x>
-      <y>117</y>
+      <x>954</x>
+      <y>126</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -409,8 +409,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>909</x>
-      <y>342</y>
+      <x>864</x>
+      <y>351</y>
       <w>27</w>
       <h>351</h>
     </coordinates>
@@ -420,8 +420,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>909</x>
-      <y>675</y>
+      <x>864</x>
+      <y>684</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -431,8 +431,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>720</y>
+      <x>720</x>
+      <y>729</y>
       <w>306</w>
       <h>36</h>
     </coordinates>
@@ -443,8 +443,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1053</x>
-      <y>720</y>
+      <x>1008</x>
+      <y>729</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -454,8 +454,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1053</x>
-      <y>135</y>
+      <x>1008</x>
+      <y>144</y>
       <w>27</w>
       <h>603</h>
     </coordinates>
@@ -465,8 +465,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>765</y>
+      <x>720</x>
+      <y>774</y>
       <w>477</w>
       <h>36</h>
     </coordinates>
@@ -477,8 +477,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1224</x>
-      <y>765</y>
+      <x>1179</x>
+      <y>774</y>
       <w>18</w>
       <h>45</h>
     </coordinates>
@@ -488,8 +488,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1143</x>
-      <y>117</y>
+      <x>1098</x>
+      <y>126</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -499,8 +499,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1224</x>
-      <y>135</y>
+      <x>1179</x>
+      <y>144</y>
       <w>27</w>
       <h>648</h>
     </coordinates>
@@ -510,8 +510,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>693</y>
+      <x>720</x>
+      <y>702</y>
       <w>162</w>
       <h>36</h>
     </coordinates>
@@ -522,8 +522,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>738</y>
+      <x>720</x>
+      <y>747</y>
       <w>306</w>
       <h>36</h>
     </coordinates>
@@ -534,8 +534,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>765</x>
-      <y>783</y>
+      <x>720</x>
+      <y>792</y>
       <w>477</w>
       <h>36</h>
     </coordinates>
@@ -546,8 +546,8 @@ setOccupation()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>783</y>
+      <x>378</x>
+      <y>792</y>
       <w>351</w>
       <h>36</h>
     </coordinates>
