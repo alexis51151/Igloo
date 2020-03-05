@@ -76,4 +76,7 @@ public class Chambre {
 	public Occupation getOccupation() {
 		return occupation;
 	}
+
+	
+    
 }

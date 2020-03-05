@@ -21,4 +21,6 @@ public class Client {
 	public void setOccupation(Occupation occupation) {
 		this.occupation = occupation;
 	}
+	
+	
 }

@@ -1,7 +1,10 @@
 package eu.telecomsudparis.csc4102.gestionclefshotel;
 
 import eu.telecomsudparis.csc4102.exception.ChaineDeCaracteresNullOuVide;
-import eu.telecomsudparis.csc4102.gestionclefshotel.exception.*;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.BadgeNonPresent;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ChambreNonPresente;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ClientNonPresent;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.OccupationMalParametree;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -10,6 +13,7 @@ import java.util.Optional;
 import java.util.Map.Entry;
 
 import eu.telecomsudparis.csc4102.exception.ChaineDeCaracteresNullOuVide;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ProblemeDansGenerationClef;
 import eu.telecomsudparis.csc4102.gestionserrures.Serrure;
 import eu.telecomsudparis.csc4102.gestionserrures.exception.SerrureDejaPresente;
 
@@ -27,11 +31,12 @@ public class GestionClefsHotel {
 	private Map<String, Client> clients;
 	private Map<String, Badge> badges;
 
+	/**
+	 * Cas d'utilisation : enregistrer l'occupation d'une chambre par un client
+	 */
 
-	public Occupation chercherOccupation(String idChambre, String idBadge, String idClient){return null;}
 
-
-	public Occupation creerOccupation(String id, String idBadge, String idClient, String idChambre, Date dateDebut, Date dateFin)
+	public Occupation enregistrerOccupation(String id, String idBadge, String idClient, String idChambre, Date dateDebut, Date dateFin)
 			throws ChaineDeCaracteresNullOuVide, ChambreNonPresente, ClientNonPresent, BadgeNonPresent, OccupationMalParametree{
 
 		Optional<Chambre> s = chercherChambre(idChambre);
@@ -57,16 +62,24 @@ public class GestionClefsHotel {
 		}
 
 		b.get().reinitialiserBadge();
-		Occupation o = chercherOccupation(idChambre, idBadge, idClient);
+		Occupation o1 = c.get().getOccupation();
+		Occupation o2 = s.get().getOccupation();
 
-		if(o != null || dateDebut == null || dateFin == null){
+
+		if(o1 != null || o2 != null || dateDebut == null || dateFin == null){
 			throw new OccupationMalParametree("Occupation déjà existante ou dates null");
 		}
 
-		return new Occupation(id, dateDebut, dateFin);
-
+		Occupation o = new Occupation(id, dateDebut, dateFin);
+		b.get().setOccupation(o);
+		c.get().setOccupation(o);
+		s.get().setOccupation(o);
+		return(o);
 
 	}
+
+
+
 	/**
 	 * construit la façade.
 	 */

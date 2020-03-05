@@ -106,9 +106,9 @@ c = chercherClient(idClient):Client</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>324</x>
-      <y>351</y>
+      <y>369</y>
       <w>945</w>
-      <h>531</h>
+      <h>513</h>
     </coordinates>
     <panel_attributes>opt
 --
@@ -140,7 +140,7 @@ idBadge non null et non vide &amp;&amp; b != null]</panel_attributes>
     <panel_attributes>opt
 --
 [dateDébut non null &amp;&amp; dateFin non null 
-&amp;&amp; o = null &amp;&amp; o1 = null &amp;&amp; o2 = null]</panel_attributes>
+&amp;&amp; o1 = null &amp;&amp; o2 = null]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -203,18 +203,6 @@ b = chercherBadge(idBadge):Badge</panel_attributes>
     <additional_attributes>10.0;20.0;540.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>711</x>
-      <y>486</y>
-      <w>342</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-o2 = chercherOccupation(s):Occupation</panel_attributes>
-    <additional_attributes>10.0;50.0;80.0;50.0;80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>558</x>
@@ -224,18 +212,6 @@ o2 = chercherOccupation(s):Occupation</panel_attributes>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>567</x>
-      <y>423</y>
-      <w>369</w>
-      <h>54</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-o1 = chercherOccupation(c):Occupation</panel_attributes>
-    <additional_attributes>10.0;40.0;110.0;40.0;110.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -256,7 +232,7 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
       <w>135</w>
       <h>27</h>
     </coordinates>
-    <panel_attributes>_:Clients_</panel_attributes>
+    <panel_attributes>_c:Client_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -278,7 +254,7 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
       <w>135</w>
       <h>27</h>
     </coordinates>
-    <panel_attributes>_:Chambres_</panel_attributes>
+    <panel_attributes>_s:Chambre_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -295,24 +271,26 @@ o1 = chercherOccupation(c):Occupation</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>423</y>
-      <w>198</w>
-      <h>27</h>
+      <x>369</x>
+      <y>414</y>
+      <w>216</w>
+      <h>36</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+o1 = getOccupation:Occupation</panel_attributes>
+    <additional_attributes>210.0;20.0;20.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>378</x>
-      <y>495</y>
+      <y>486</y>
       <w>342</w>
-      <h>27</h>
+      <h>36</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>360.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+o2 = getOccupation:Occupation</panel_attributes>
+    <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
