@@ -140,7 +140,7 @@ idBadge non null et non vide &amp;&amp; b != null]</panel_attributes>
     <panel_attributes>opt
 --
 [dateDébut non null &amp;&amp; dateFin non null 
-&amp;&amp; o = null &amp;&amp; o1 = null &amp;&amp; o2 = null]</panel_attributes>
+&amp;&amp; o1 = null &amp;&amp; o2 = null]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -207,11 +207,11 @@ b = chercherBadge(idBadge):Badge</panel_attributes>
     <coordinates>
       <x>711</x>
       <y>486</y>
-      <w>342</w>
+      <w>297</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-o2 = chercherOccupation(s):Occupation</panel_attributes>
+o2 = s.getOccupation:Occupation</panel_attributes>
     <additional_attributes>10.0;50.0;80.0;50.0;80.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -230,11 +230,11 @@ o2 = chercherOccupation(s):Occupation</panel_attributes>
     <coordinates>
       <x>567</x>
       <y>423</y>
-      <w>369</w>
+      <w>324</w>
       <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-o1 = chercherOccupation(c):Occupation</panel_attributes>
+o1 = c.getOccupation:Occupation</panel_attributes>
     <additional_attributes>10.0;40.0;110.0;40.0;110.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>

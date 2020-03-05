@@ -66,6 +66,14 @@ public class Badge {
 		return true;
 	}
 	
+	public Occupation getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(Occupation occupation) {
+		this.occupation = occupation;
+	}
+
 	public void reinitialiserBadge(){}
 	
 	

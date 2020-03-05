@@ -68,6 +68,14 @@ public class Chambre {
 			return false;
 		return true;
 	}
+
+	public Occupation getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(Occupation occupation) {
+		this.occupation = occupation;
+	}
     
     
 }
