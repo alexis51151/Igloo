@@ -9,12 +9,14 @@ public class Badge {
 	private byte[] clef1;
 	private byte[] clef2;
 	private Occupation occupation;
+	private boolean perdu;
 	
 	Badge(String id) throws ChaineDeCaracteresNullOuVide{
 		if (id == null || id.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant badge null ou vide non autorisé");
 		}
 		this.id = id;
+		this.perdu = false;
 	}
 
 	public void setClef1(byte[] clef1) {
@@ -76,7 +78,11 @@ public class Badge {
 
 	public void reinitialiserBadge(){}
 	
-	
+	public boolean invariant() {
+		boolean prete = (occupation==null);
+		return ( (!prete && !perdu) || (prete && !perdu) || (prete && perdu));
+		
+	}
 	
 	
 }

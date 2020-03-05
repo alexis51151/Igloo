@@ -77,6 +77,9 @@ public class Chambre {
 		return occupation;
 	}
 
+	public boolean invariant() {
+		return ( (occupation == null) || (occupation != null));
+	}
 	
     
 }

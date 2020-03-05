@@ -165,6 +165,7 @@ public class GestionClefsHotel {
 	 * @return true si l'invariant est vérifié.
 	 */
 	public boolean invariant() {
+		
 		return true;
 	}
 
