@@ -5,6 +5,7 @@ import eu.telecomsudparis.csc4102.gestionclefshotel.exception.BadgeNonPresent;
 import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ChambreNonPresente;
 import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ClientNonPresent;
 import eu.telecomsudparis.csc4102.gestionclefshotel.exception.OccupationMalParametree;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.OccupationNonPresente;
 
 import java.time.LocalDate;
 import java.util.Date;
