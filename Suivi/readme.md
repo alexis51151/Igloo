@@ -69,7 +69,7 @@ Denis Conan
 - je renouvelle mes excuses pour l'oubli de suivi à la séance précédente
 - diagramme de classes : ok
 - diagrammes de séquence
-    - [] « enregistrer... » : pb dessin : je ne comprends pas la barre
+    - [x] « enregistrer... » : pb dessin : je ne comprends pas la barre
          d'activation toute seule et à cheval sur le début du premier
          fragment opt
          + vous n'avez pas décrit la séquence avant de faire le diagramme
@@ -93,18 +93,19 @@ Denis Conan
          + les postconditions sont locaux à la classe : écrire occupation.badge
            cela signifie que l'attribut n'est pas privé (ce que nous ne
            voulons pas) et ce n'est pas local à la classe
-    - [?] estDonné... : où est utilisée cette opération dans le diagramme de
+    - [x] estDonné... : où est utilisée cette opération dans le diagramme de
          séquence « enregistrer... » ? comment alors construire la table de
          décision ?
 	 Réponse : à quelle opération faites-vous référence ? A quoi correspond estDonné ? 
 - programmation
-    - [] Badge : revoir le constructeur avec les mêmes remarques que dans la
+    - [x] Badge : revoir le constructeur avec les mêmes remarques que dans la
          modélisation
          + pourquoi avoir générer tous ces getters et setters ?
+	   réponse : Car on en aura besoin pour pour la suite, notamment pour estDonnéAUnClient
     - [x] Chambre : dans le constructeur, entre deux générations de clefs, le
          sel doit être incrémenté
     - Client : ok pour ce démarrage
-    - [] Occupation : le constructeur ne correspond pas au diagramme de
+    - [x] Occupation : le constructeur ne correspond pas au diagramme de
          séquence
     - [x] façade : mes méthodes chercherXxxx ne sont-elles pas simples à
          programmer ?
