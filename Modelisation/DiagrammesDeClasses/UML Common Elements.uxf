@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>90</x>
+      <y>410</y>
+      <w>60</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>client
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>50</x>
+      <y>110</y>
+      <w>120</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>réceptionniste
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>20</x>
+      <y>590</y>
+      <w>200</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>administrateur du système
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>60</x>
+      <y>780</y>
+      <w>120</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>gérant d'étage
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>220</x>
+      <y>560</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Créer une chambre dans le système</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>220</x>
+      <y>640</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Créer les badges d'accès</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>210</x>
+      <y>780</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Initialiser les serrures</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>200</x>
+      <y>120</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Enregistrer un client</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>200</x>
+      <y>200</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Créer le client dans le système</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>200</x>
+      <y>270</y>
+      <w>360</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Donner un badge d'accès pour une chambre libre</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
