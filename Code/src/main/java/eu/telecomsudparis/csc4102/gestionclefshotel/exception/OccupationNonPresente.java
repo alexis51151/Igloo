@@ -2,7 +2,7 @@ package eu.telecomsudparis.csc4102.gestionclefshotel.exception;
 
 import eu.telecomsudparis.csc4102.util.OperationImpossible;
 
-public class ChambreNonPresente extends OperationImpossible {
+public class OccupationNonPresente extends OperationImpossible {
 
     /**
      * numéro de version pour la sérialisation.
@@ -14,7 +14,7 @@ public class ChambreNonPresente extends OperationImpossible {
      *
      * @param message le message de l'exception.
      */
-    public ChambreNonPresente(final String message) {
+    public OccupationNonPresente(final String message) {
         super(message);
     }
 

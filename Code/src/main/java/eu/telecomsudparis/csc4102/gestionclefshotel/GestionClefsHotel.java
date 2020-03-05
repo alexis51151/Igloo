@@ -1,10 +1,7 @@
 package eu.telecomsudparis.csc4102.gestionclefshotel;
 
 import eu.telecomsudparis.csc4102.exception.ChaineDeCaracteresNullOuVide;
-import eu.telecomsudparis.csc4102.gestionclefshotel.exception.BadgeNonPresent;
-import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ChambreNonPresente;
-import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ClientNonPresent;
-import eu.telecomsudparis.csc4102.gestionclefshotel.exception.OccupationMalParametree;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -13,7 +10,6 @@ import java.util.Optional;
 import java.util.Map.Entry;
 
 import eu.telecomsudparis.csc4102.exception.ChaineDeCaracteresNullOuVide;
-import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ProblemeDansGenerationClef;
 import eu.telecomsudparis.csc4102.gestionserrures.Serrure;
 import eu.telecomsudparis.csc4102.gestionserrures.exception.SerrureDejaPresente;
 
@@ -122,16 +118,30 @@ public class GestionClefsHotel {
 		return Optional.ofNullable(badges.get(id));
 	}
 
-	public void libérerChambre(final String identifiant) throws ChaineDeCaracteresNullOuVide, ChambreNonPresente {
-		if (identifiant == null || identifiant.equals("")) {
+	public void libérerChambre(final String idChambre)
+			throws ChaineDeCaracteresNullOuVide, ChambreNonPresente, OccupationNonPresente {
+		if (idChambre == null || idChambre.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant null ou vide non autorisé");
 		}
-		if (! chambres.containsKey(identifiant)) {
-			throw new ChambreNonPresente("chambre '" + identifiant + "' non présente dans le système");
+		if (! chambres.containsKey(idChambre)) {
+			throw new ChambreNonPresente("chambre '" + idChambre + "' non présente dans le système");
 		}
-		chambres.get(identifiant);
-		
+		Chambre currentChambre = chambres.get(idChambre);
+		Occupation occupation = currentChambre.getOccupation();
+		if(occupation == null){
+			throw new OccupationNonPresente("Cette occupation n'existe pas");
+		}
 
+		for(Map.Entry<String, Client> entry : clients.entrySet()) {
+			String key = entry.getKey();
+			Client client = entry.getValue();
+
+			if(client.getOccupation().equals(occupation)){
+				client.setOccupation(null);
+			}
+		}
+		currentChambre.setOccupation(null);
+		chambres.replace(idChambre, currentChambre);
 	}
 	
 

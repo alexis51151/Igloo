@@ -13,6 +13,12 @@ public class Client {
 		this.prénom = prénom;
 		this.occupation = occupation;
 	}
-	
-	
+
+	public Occupation getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(Occupation occupation) {
+		this.occupation = occupation;
+	}
 }
