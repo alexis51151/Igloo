@@ -80,7 +80,7 @@ public class Badge {
 	
 	public boolean invariant() {
 		boolean prete = (occupation==null);
-		return ( (!prete && !perdu) || (prete && !perdu) || (prete && perdu));
+		return ( (!prete && !perdu) || (prete && !perdu) || (prete && perdu) && (clef1.length == Util.TAILLE_CLEF) && (clef2.length == Util.TAILLE_CLEF) );
 		
 	}
 	
