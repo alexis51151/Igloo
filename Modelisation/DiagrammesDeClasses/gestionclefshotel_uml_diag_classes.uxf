@@ -83,7 +83,7 @@ clef2:Byte[]</panel_attributes>
 id:String
 clef1:Byte[]
 clef2:Byte[]
-/</panel_attributes>
+perdu:boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
