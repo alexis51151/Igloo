@@ -301,7 +301,7 @@ b = chercherBadge(idBadge):Badge</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-o1 = getOccupation:Occupation</panel_attributes>
+o1 = getOccupation():Occupation</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -313,7 +313,7 @@ o1 = getOccupation:Occupation</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-o2 = getOccupation:Occupation</panel_attributes>
+o2 = getOccupation():Occupation</panel_attributes>
     <additional_attributes>360.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
