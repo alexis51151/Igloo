@@ -79,12 +79,26 @@ public class Badge {
 	public void setOccupation(Occupation occupation) {
 		this.occupation = occupation;
 	}
+	
+	public void estDonnéAUnClient(Chambre ch) throws OperationImpossible {
+		if (ch == null) {
+			throw new OperationImpossible("On ne peut associer une chambre nulle à un badge" + this);
+		}
+		this.clef1 = this.clef2;
+		ch.setSel(ch.getSel() + 1);
+		this.clef2 = Util.genererUneNouvelleClef(ch.getGraine(), String.format("%010d%n",ch.getSel()));
+		assert invariant();
+	}
+
+	public byte[] getClef1() {
+		return clef1;
+	}
 
 	public void reinitialiserBadge(){}
 	
 	public boolean invariant() {
 		boolean prete = (occupation==null);
-		return ( ((!prete && !perdu) || (prete && !perdu) || (prete && perdu)) && (clef1.length == Util.TAILLE_CLEF) && (clef2.length == Util.TAILLE_CLEF) );
+		return ( ((!prete && !perdu) || (prete && !perdu) || (prete && perdu)) && (clef1 != null) && (clef1.length == Util.TAILLE_CLEF) && (clef2 != null) && (clef2.length == Util.TAILLE_CLEF) );
 		
 	}
 	

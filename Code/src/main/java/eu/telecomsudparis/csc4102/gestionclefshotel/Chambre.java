@@ -14,14 +14,35 @@ public class Chambre {
     private byte clef2[];
     private Occupation occupation;
 
-    public Chambre(String id, String graine, int sel) throws ProblemeDansGenerationClef{
+    public byte[] getClef1() {
+		return clef1;
+	}
+
+	public byte[] getClef2() {
+		return clef2;
+	}
+
+	public int getSel() {
+		return sel;
+	}
+
+	public void setSel(int sel) {
+		this.sel = sel;
+	}
+
+	public String getGraine() {
+		return graine;
+	}
+
+	public Chambre(String id, String graine, int sel) throws ProblemeDansGenerationClef{
         this.id = id;
         this.graine = graine;
         this.sel = sel;
         this.clef1 = Util.genererUneNouvelleClef(graine, String.format("%010d%n", this.sel));
-		sel++;
+		this.sel++;
         this.clef2 = Util.genererUneNouvelleClef(graine, String.format("%010d%n", this.sel));
-    }
+	}
+	
 
 	@Override
 	public int hashCode() {

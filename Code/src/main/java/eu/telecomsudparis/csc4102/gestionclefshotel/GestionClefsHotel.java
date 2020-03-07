@@ -75,8 +75,8 @@ public class GestionClefsHotel {
 		b.get().setOccupation(o);
 		c.get().setOccupation(o);
 		s.get().setOccupation(o);
+		assert invariant();
 		return(o);
-
 	}
 
 
@@ -156,6 +156,7 @@ public class GestionClefsHotel {
 		}
 		currentChambre.setOccupation(null);
 		chambres.replace(idChambre, currentChambre);
+		assert invariant();
 	}
 	
 
