@@ -3,20 +3,24 @@ package eu.telecomsudparis.csc4102.gestionclefshotel;
 import java.util.Arrays;
 
 import eu.telecomsudparis.csc4102.exception.ChaineDeCaracteresNullOuVide;
+import eu.telecomsudparis.csc4102.util.OperationImpossible;
 
 public class Badge {
 	private final String id;
-	private byte[] clef1;
-	private byte[] clef2;
-	private Occupation occupation;
-	private boolean perdu;
+	private byte[] clef1 = new byte[Util.TAILLE_CLEF];
+	private byte[] clef2 = new byte[Util.TAILLE_CLEF];
+	private Occupation occupation = null;
+	private boolean perdu = false;
 	
-	Badge(String id) throws ChaineDeCaracteresNullOuVide{
+	public Badge(String id) throws ChaineDeCaracteresNullOuVide, OperationImpossible{
 		if (id == null || id.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant badge null ou vide non autorisé");
+		}		
+		if (occupation != null) {
+			throw new OperationImpossible("L'occupation devrait être nulle" + this);
 		}
 		this.id = id;
-		this.perdu = false;
+		assert invariant();
 	}
 
 	public void setClef1(byte[] clef1) {
@@ -80,7 +84,7 @@ public class Badge {
 	
 	public boolean invariant() {
 		boolean prete = (occupation==null);
-		return ( (!prete && !perdu) || (prete && !perdu) || (prete && perdu) && (clef1.length == Util.TAILLE_CLEF) && (clef2.length == Util.TAILLE_CLEF) );
+		return ( ((!prete && !perdu) || (prete && !perdu) || (prete && perdu)) && (clef1.length == Util.TAILLE_CLEF) && (clef2.length == Util.TAILLE_CLEF) );
 		
 	}
 	
