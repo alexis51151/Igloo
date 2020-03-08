@@ -1,6 +1,7 @@
 package eu.telecomsudparis.csc4102.gestionclefshotel.unitaires.validation;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -52,6 +53,7 @@ public class TestCreerChambre {
 	@Test
 	public void creerChambreTest4() throws Exception {
 		system.creerChambre("id1", "graine1", 0);
+		Assert.assertFalse(system.chercherChambre("id1") == null);
 	}
 
 	
