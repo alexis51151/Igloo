@@ -1,4 +1,4 @@
-package eu.telcomsudparis.csc4102.gestionclefshotel.unitaires.validation;
+package eu.telecomsudparis.csc4102.gestionclefshotel.unitaires.validation;
 
 import org.junit.After;
 import org.junit.Before;

@@ -18,6 +18,7 @@ import eu.telecomsudparis.csc4102.exception.ChaineDeCaracteresNullOuVide;
 import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ProblemeDansGenerationClef;
 import eu.telecomsudparis.csc4102.gestionserrures.Serrure;
 import eu.telecomsudparis.csc4102.gestionserrures.exception.SerrureDejaPresente;
+import eu.telecomsudparis.csc4102.util.OperationImpossible;
 
 /**
  * Cette classe définit la façade du système de gestion des clefs de l'hôtel.
@@ -111,6 +112,15 @@ public class GestionClefsHotel {
 		assert invariant();
 	}
 	
+	public void creerClient(final String identifiant, final Occupation occupation) {
+		clients.put(identifiant, new Client(identifiant, "nom", "prenom", occupation));
+	}
+	
+	public void creerBadge(final String identifiant) throws ChaineDeCaracteresNullOuVide, OperationImpossible{
+		badges.put(identifiant, new Badge(identifiant));
+	}
+
+	
 	/**
 	 * obtenir la chambre avec l'identifiant donné.
 	 * 
@@ -118,7 +128,7 @@ public class GestionClefsHotel {
 	 * @return la chambre.
 	 * @throws ChaineDeCaracteresNullOuVide identifiant null ou vide.
 	 */
-	private Optional<Chambre> chercherChambre(final String identifiant) throws ChaineDeCaracteresNullOuVide {
+	public Optional<Chambre> chercherChambre(final String identifiant) throws ChaineDeCaracteresNullOuVide {
 		if (identifiant == null || identifiant.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant null ou vide non autorisé");
 		}

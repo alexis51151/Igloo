@@ -1,4 +1,4 @@
-package eu.telcomsudparis.csc4102.gestionclefshotel.unitaires.validation;
+package eu.telecomsudparis.csc4102.gestionclefshotel.unitaires.validation;
 
 import java.util.Date;
 
@@ -9,8 +9,11 @@ import org.junit.Test;
 import eu.telecomsudparis.csc4102.exception.ChaineDeCaracteresNullOuVide;
 import eu.telecomsudparis.csc4102.gestionclefshotel.Chambre;
 import eu.telecomsudparis.csc4102.gestionclefshotel.GestionClefsHotel;
+import eu.telecomsudparis.csc4102.gestionclefshotel.Occupation;
 import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ChambreNonPresente;
 import eu.telecomsudparis.csc4102.gestionclefshotel.exception.ClientNonPresent;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.OccupationMalParametree;
+import eu.telecomsudparis.csc4102.gestionclefshotel.exception.BadgeNonPresent;
 
 public class TestEnregistrerOccupation {
 
@@ -79,5 +82,46 @@ public class TestEnregistrerOccupation {
 		system.creerChambre("idChambre1", "graine1", 0);
 		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", new Date(2020, 05, 12), new Date(2020, 05, 21));
 	}
+	
+	@Test(expected = BadgeNonPresent.class)
+	public void enregistrerOccupationTest7() throws Exception{
+		system.creerChambre("idChambre1", "grain1", 0);
+		system.creerClient("idClient1", null);
+		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", new Date(2020, 05, 12), new Date(2020, 05, 21));	
+	}
+	
+	@Test(expected = OccupationMalParametree.class)
+	public void enregistrerOccupationTest8Jeu1() throws Exception{
+		system.creerChambre("idChambre1", "grain1", 0);
+		system.creerClient("idClient1", new Occupation("idOcc1", new Date(2020, 05, 12), new Date(2020, 05, 12)));
+		system.creerBadge("idBadge1");
+		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", new Date(2020, 05, 12), new Date(2020, 05, 21));	
+	}
+	
+	@Test(expected = OccupationMalParametree.class)
+	public void enregistrerOccupationTest8Jeu2() throws Exception{
+		system.creerChambre("idChambre1", "grain1", 0);
+		system.chercherChambre("idChambre1").get().setOccupation(new Occupation("idOcc1", new Date(2020, 05, 12), new Date(2020, 05, 12)));;
+		system.creerClient("idClient1", null);
+		system.creerBadge("idBadge1");
+		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", new Date(2020, 05, 12), new Date(2020, 05, 21));	
+	}
+	
+	@Test(expected = OccupationMalParametree.class)
+	public void enregistrerOccupationTest8Jeu3() throws Exception{
+		system.creerChambre("idChambre1", "grain1", 0);
+		system.creerClient("idClient1", null);
+		system.creerBadge("idBadge1");
+		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", null, new Date(2020, 05, 21));	
+	}
+	
+	@Test(expected = OccupationMalParametree.class)
+	public void enregistrerOccupationTest8Jeu4() throws Exception{
+		system.creerChambre("idChambre1", "grain1", 0);
+		system.creerClient("idClient1", null);
+		system.creerBadge("idBadge1");
+		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", new Date(2020, 05, 21), null);	
+	}
+	
 	
 }

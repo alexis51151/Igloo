@@ -1,5 +1,5 @@
 // CHECKSTYLE:OFF
-package eu.telcomsudparis.csc4102.gestionclefshotel.unitaires;
+package eu.telecomsudparis.csc4102.gestionclefshotel.unitaires;
 
 import static org.junit.Assert.assertTrue;
 
