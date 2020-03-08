@@ -9,6 +9,7 @@ import eu.telecomsudparis.csc4102.gestionclefshotel.exception.OccupationNonPrese
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Map.Entry;
@@ -43,14 +44,17 @@ public class GestionClefsHotel {
 		Optional<Chambre> s = chercherChambre(idChambre);
 		Optional<Client> c = chercherClient(idClient);
 		Optional<Badge> b = chercherBadge(idBadge);
+		if (id == null || id.equals("")) {
+			throw new ChaineDeCaracteresNullOuVide("identifiant occupation null ou vide non autorisé");
+		}
 		if (idClient == null || idClient.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant client null ou vide non autorisé");
 		}
 		if (idChambre == null || idChambre.equals("")) {
-			throw new ChaineDeCaracteresNullOuVide("identifiant client null ou vide non autorisé");
+			throw new ChaineDeCaracteresNullOuVide("identifiant chambre null ou vide non autorisé");
 		}
 		if (idBadge == null || idBadge.equals("")) {
-			throw new ChaineDeCaracteresNullOuVide("identifiant client null ou vide non autorisé");
+			throw new ChaineDeCaracteresNullOuVide("identifiant badge null ou vide non autorisé");
 		}
 		if (! s.isPresent())
 			throw new ChambreNonPresente("chambre introuvable");
@@ -85,6 +89,9 @@ public class GestionClefsHotel {
 	 * construit la façade.
 	 */
 	public GestionClefsHotel() {
+		chambres = new HashMap<String, Chambre>();
+		clients = new HashMap<String, Client>();
+		badges= new HashMap<String, Badge>();
 		assert invariant();
 	}
 	
