@@ -105,6 +105,9 @@ public class GestionClefsHotel {
 		if (identifiant == null || identifiant.equals("")) {
 			throw new ChaineDeCaracteresNullOuVide("identifiant null ou vide non autorisé");
 		}
+		if (graine == null || graine.equals("")) {
+			throw new ChaineDeCaracteresNullOuVide("Graine null ou vide non autorisé");
+		}
 		if (chambres.containsKey(identifiant)) {
 			throw new ChambreDejaPresente("chambre '" + identifiant + "' déjà présente dans le système");
 		}
