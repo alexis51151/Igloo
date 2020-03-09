@@ -165,6 +165,18 @@ public class GestionClefsHotel {
 		if(occupation == null){
 			throw new OccupationNonPresente("Cette occupation n'existe pas");
 		}
+		// Effaçage des paires de clefs 
+		for(Map.Entry<String, Badge> entry : badges.entrySet()) {
+			String key = entry.getKey();
+			Badge badge = entry.getValue();
+
+			if(badge.getOccupation().equals(occupation)){
+				// Créer des tableaux de bytes avec que des 0
+				badge.setClef1(new byte[Util.TAILLE_CLEF]);
+				badge.setClef2(new byte[Util.TAILLE_CLEF]);
+				badge.setOccupation(null);
+			}
+		}
 
 		for(Map.Entry<String, Client> entry : clients.entrySet()) {
 			String key = entry.getKey();

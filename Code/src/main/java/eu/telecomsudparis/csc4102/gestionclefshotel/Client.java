@@ -22,5 +22,9 @@ public class Client {
 		this.occupation = occupation;
 	}
 	
+	public boolean invariant() { // Invariant pas très utile mais bon...
+		return ((this.occupation == null) || (this.occupation != null));
+	}
+	
 	
 }
