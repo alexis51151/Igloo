@@ -3,6 +3,7 @@ package eu.telecomsudparis.csc4102.gestionclefshotel.unitaires.validation;
 import java.util.Date;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -121,6 +122,17 @@ public class TestEnregistrerOccupation {
 		system.creerClient("idClient1", null);
 		system.creerBadge("idBadge1");
 		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", new Date(2020, 05, 21), null);	
+	}
+	
+	@Test
+	public void enregistrerOccupationTest9() throws Exception{
+		system.creerChambre("idChambre1", "grain1", 0);
+		system.creerClient("idClient1", null);
+		system.creerBadge("idBadge1");
+		system.enregistrerOccupation("id1", "idBadge1", "idClient1", "idChambre1", new Date(2020, 05, 12), new Date(2020, 05, 21));
+		Assert.assertTrue(system.chercherChambre("idChambre1").get().getOccupation() != null);
+		Assert.assertTrue(system.chercherClient("idClient1").get().getOccupation() != null);
+		Assert.assertTrue(system.chercherBadge("idBadge1").get().getOccupation() != null);
 	}
 	
 	
