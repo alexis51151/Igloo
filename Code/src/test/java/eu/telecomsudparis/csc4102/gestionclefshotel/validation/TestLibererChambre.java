@@ -1,4 +1,4 @@
-package eu.telecomsudparis.csc4102.gestionclefshotel.unitaires.validation;
+package eu.telecomsudparis.csc4102.gestionclefshotel.validation;
 
 import java.util.Arrays;
 import java.util.Date;
