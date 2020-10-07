@@ -1,6 +1,6 @@
 Groupe:
-- Nom1 Prenom1 (to be adapted)
-- Nom2 Prenom2 (to be adapted)
+- LE GLAUNEC ALexis 
+- CANTO Guillem
 
 Copyright (C) 2016-2020
 Contact: Denis.Conan[at]telecom-sudparis.eu
