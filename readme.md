@@ -1,3 +1,6 @@
+<ins>Introduction: </ins> Project aimed at improving our Software Engineering skills. The sandbox project is an hotel infrastructure with how to handle people, give them badges, activate those badges while they're staying in the hotel, creating a new key on a badge each time it is a new occupant, etc... 
+
+
 Groupe:
 - LE GLAUNEC ALexis 
 - CANTO Guillem
