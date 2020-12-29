@@ -10,7 +10,7 @@ Authors:
 - [CANTO Guillem](https://github.com/guillemollix)
 - Denis Conan (initial commits + reviews)
 
-Copyright (C) 2016-2020
+Copyright (C) 2016-2020 </br>
 Contact: alexis.le_glaunec@telecom-sudparis.eu
 
 ================================================================================
