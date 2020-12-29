@@ -1,12 +1,15 @@
-<ins>Introduction: </ins> Project aimed at improving our Software Engineering skills. The sandbox project is an hotel infrastructure with how to handle people, give them badges, activate those badges while they're staying in the hotel, creating a new key on a badge each time it is a new occupant, etc... 
+Introduction:
+-------------
+
+This project is part of our Software Engineering formation at [Télécom SudParis](https://www.telecom-sudparis.eu/) engineering school. It simulates a hotel infrastructure with several use cases : give customers badges, activate their badges while staying in the hotel, create a new key on a badge each time there is a new occupant...
 
 
 Groupe:
-- LE GLAUNEC ALexis 
-- CANTO Guillem
+- [LE GLAUNEC ALexis](https://github.com/alexis51151)
+- [CANTO Guillem](https://github.com/guillemollix)
 
 Copyright (C) 2016-2020
-Contact: Denis.Conan[at]telecom-sudparis.eu
+Contact: alexis.le_glaunec@telecom-sudparis.eu
 
 ================================================================================
 
@@ -26,15 +29,6 @@ $ export JAVA_HOME=<the root directory of your Java installation>
 $ export CLASSPATH=$JAVA_HOME/lib
 ~~~
 
-Before using the Maven module:
-------------------------------
-Modify the line 
-
-~~~
-<artifactId>csc4102-prenom1Nom1-prenom2Nom2</artifactId>
-~~~
-
-in the file `Code/pom.xml`
 
 Compilation and installation:
 -----------------------------
