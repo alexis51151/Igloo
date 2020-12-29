@@ -5,9 +5,10 @@ This project is part of our Software Engineering formation at [Télécom SudPari
 It simulates a hotel infrastructure with several use cases: give customers badges, activate their badges while staying in the hotel, create a new key on a badge each time there is a new occupant...
 
 
-Groupe:
-- [LE GLAUNEC ALexis](https://github.com/alexis51151)
+Authors:
+- [LE GLAUNEC Alexis](https://github.com/alexis51151)
 - [CANTO Guillem](https://github.com/guillemollix)
+- Denis Conan (initial commits + reviews)
 
 Copyright (C) 2016-2020
 Contact: alexis.le_glaunec@telecom-sudparis.eu
