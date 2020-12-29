@@ -2,7 +2,7 @@ Introduction:
 -------------
 
 This project is part of our Software Engineering formation at [Télécom SudParis](https://www.telecom-sudparis.eu/) engineering school. </br>
-It simulates a hotel infrastructure with several use cases : give customers badges, activate their badges while staying in the hotel, create a new key on a badge each time there is a new occupant...
+It simulates a hotel infrastructure with several use cases: give customers badges, activate their badges while staying in the hotel, create a new key on a badge each time there is a new occupant...
 
 
 Groupe:
